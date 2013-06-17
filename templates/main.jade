@@ -1,7 +1,14 @@
 html
 head
-  script(src='/bundle/router.js')
+  // script(src='/bundle/router.js').
+  //link(rel='stylesheet', href='/asset/topcoat/topcoat-mobile-light.css').
+  link(rel='stylesheet', href='/style/base').
+  block head
 body
   .nav.dev  
-    a(auri href="/") root
-    a(auri href="/test") test
+    a(auri href="/") Home
+    a(auri href="/login") Login
+    a(auri href="/logout") Logout
+    a(auri href="/account") Account
+
+  block content

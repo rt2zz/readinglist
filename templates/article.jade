@@ -1,0 +1,8 @@
+extends main.jade
+
+block content
+  h1= parsed.title
+  .content !{parsed.html}
+  pre= JSON.stringify(parsed, null, 2)
+
+block head
