@@ -48,23 +48,16 @@ $(document).ready(function(){
 
 function scroller(){
     
-    var mainHeight = $('.content').height()
-    var rightHeight = $('#right').height()
-    var maxDiff = (mainHeight-rightHeight)
-    console.log('maxDiff', maxDiff)
-    var docHeight = $(document).height()
-    console.log('docHeight', docHeight)
+  var rightHeight = $('#right').height()
+  var docHeight = $(document).height()
 
   $(window).scroll(function(){
     var offset = $(window).scrollTop();
-    console.log('offset', offset)
     var windowHeight = window.innerHeight
-    console.log('windowHeight', windowHeight)
+    var maxDiff = rightHeight - windowHeight
     var maxOffset = docHeight-windowHeight
-    console.log('maxOffset', maxOffset)
     var diff = maxDiff*(offset/maxOffset)
-    $('#right').css({'margin-top':diff})
-    console.log(diff)
+    $('#right').css({'margin-top':-diff})
 })
 }
 
