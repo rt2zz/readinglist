@@ -25,15 +25,49 @@ $(document).ready(function(){
   var state='closed'
   $('.drawerwrapper').click(function(){
     if(state=='closed'){
-      $(this).animate({'width':'400px'})
+      $(this).animate({'width':'400px'},function(){
+        scroller()
+      })
+      $(this).removeClass('closed')
       state='open'
+      $('.drawer .icon-double-angle-left').fadeOut()
+      $('.border .icon-double-angle-right').fadeIn()
     }
   })
   $('.drawerwrapper .border').click(function(){
     if(state=='open'){
+      $('.drawer .icon-double-angle-left').fadeIn()
+      $('.border .icon-double-angle-right').fadeOut()
+      $(this).parent().addClass('closed')
       $(this).parent().animate({'width':'100px'},function(){
-      state='closed'
+        state='closed'
       })
     }
   })
 })
+
+function scroller(){
+    
+    var mainHeight = $('.content').height()
+    var rightHeight = $('#right').height()
+    var maxDiff = (mainHeight-rightHeight)
+    console.log('maxDiff', maxDiff)
+    var docHeight = $(document).height()
+    console.log('docHeight', docHeight)
+
+  $(window).scroll(function(){
+    var offset = $(window).scrollTop();
+    console.log('offset', offset)
+    var windowHeight = window.innerHeight
+    console.log('windowHeight', windowHeight)
+    var maxOffset = docHeight-windowHeight
+    console.log('maxOffset', maxOffset)
+    var diff = maxDiff*(offset/maxOffset)
+    $('#right').css({'margin-top':diff})
+    console.log(diff)
+})
+}
+
+
+
+
