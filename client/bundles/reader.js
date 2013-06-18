@@ -8,10 +8,18 @@ $(document).ready(function(){
     var delta=(offset-last)
     console.log(delta)  
     if(delta<-200){
-      $(".topnav").addClass("fixed")
+      if(!$(".topnav").hasClass('fixed')){
+        $(".topnav").addClass("fixed").hide().slideDown({duration:100, easing:'linear'})
+        $("body").animate({"margin-top":"100px"}, {duration:100, easing:'linear'})
+      }
     }
     if(delta>200){
-      $(".topnav").removeClass("fixed")
+      if($(".topnav").hasClass('fixed')){
+        $(".topnav").slideUp({duration:100, easing:'linear', complete: function(){
+          $(this).removeClass('fixed')
+        }})
+        $("body").animate({"margin-top":"0px"}, {duration:100, easing:'linear'})
+      }
     }
   },100)
 })
