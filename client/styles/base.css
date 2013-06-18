@@ -77,7 +77,7 @@ body.down {
   top: 0;
   z-index: 100;
   width: 100px;
-  background-color: red;
+  background-color: #E1E1E1;
 }
 
 .border {
@@ -85,4 +85,11 @@ body.down {
   background-color: black;
   float: left;
   width: 20px;
+}
+
+.icon-double-angle-left {
+  font-size: 150px;
+  position: absolute;
+  top: 50%;
+  color: rgba(0, 0, 0, .15);
 }
