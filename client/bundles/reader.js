@@ -8,7 +8,9 @@ $(document).ready(function(){
     var delta=(offset-last)
     console.log(delta)  
     if(delta<-200){
-      $(".topnav").addClass("fixed")
+      
+      $(".topnav").slideDown('slow').addClass("fixed")
+      $("body").addClass("down")
     }
     if(delta>200){
       $(".topnav").removeClass("fixed")
