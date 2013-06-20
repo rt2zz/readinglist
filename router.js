@@ -18,13 +18,18 @@ app.route("/logout", require('./routes/login.js').logout).nocache()
 app.route("/article/:id", require('./routes/articles.js').article).nocache()
 app.route("/articles", require('./routes/articles.js').pocketList).nocache()
 app.route("/reader", require('./routes/reader.js')).nocache()
+app.route("/twitter", require('./routes/twitterAuth.js').requestToken).nocache()
+app.route("/twitter/access", require('./routes/twitterAuth.js').accessToken).nocache()
 
 
 app.route("/auth/login", require('./routes/login.js').authRequest).nocache()
 app.route("/account", require('./routes/account.js').user).condition(requireAuth).nocache()
+app.route("/setup", require('./routes/account.js').setup).condition(requireAuth).nocache()
+app.route("/setup/complete", require('./routes/account.js').setupComplete).condition(requireAuth).nocache()
+
+
 app.route("/account/:alias", require('./routes/account.js').public).nocache()
 app.route("/:alias/pocket", require('./routes/articles.js').pocketList).nocache()
-
 
 app.route('/auth/pocket/requestToken', require('./routes/pocketAuth.js').requestToken).nocache()
 app.route('/auth/pocket/accessToken', require('./routes/pocketAuth.js').accessToken).nocache()

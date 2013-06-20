@@ -155,3 +155,24 @@ body .icon-double-angle-right {
 #right {
   overflow-x: hidden;
 }
+
+.friend {
+  height: 100px;
+  border-bottom: 1px solid #ddd;
+}
+
+.friend h2 {
+  display: inline-block;
+}
+
+.friend p {
+  display: inline-block;
+}
+
+.friend img {
+  display: inline-block;
+}
+
+.friend.selected {
+  background: #cfd;
+}

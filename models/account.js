@@ -5,6 +5,7 @@ var async = require('async')
 
 function Account (id){
   this.id = id
+  this.data = {}
   this.aliases = []
 }
 
@@ -16,11 +17,14 @@ Account.prototype.data = function(data){
 Account.prototype.save = function(type, cb){
   var self = this
   self.fetch(function(err, accountData){
+    self.new = accountData ? false : true
     if(accountData && type=='merge'){
       self.data = _.merge(accountData, self.data)
     }
     if(!accountData) self.aliases.push(self.id)
     self.setAliases(function(err){
+      console.log(self.uid)
+      console.log(self.data)
       db.put(self.uid, self.data, function(err){
         if(err){
           console.log('save err', err)
@@ -113,6 +117,14 @@ Account.prototype.pocketAuth = function(accessToken){
   var self = this
   self.data.pocket = self.data.pocket || {}
   self.data.pocket.accessToken = accessToken
+  return this
+}
+
+Account.prototype.follow = function(service, follows){
+  this.data.follows = this.data.follows || {}
+  this.data.follows[service] = follows
+  console.log(this.data.follows)
+  console.log(this.id)
   return this
 }
 
