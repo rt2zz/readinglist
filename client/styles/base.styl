@@ -37,10 +37,11 @@ a
 
 body 
   margin: 0 0
-  background-color: #F5F5F5
+  background: linear-gradient(to bottom, #f2fbe6 0%,#ffffff 70%) /* W3C */
+  text-align: center
 
 body.down
-  margin-top:100px
+  margin-top:0
 
 .content
   width: 40%
@@ -70,16 +71,21 @@ body.down
 
 .drawerwrapper.closed:hover
   background-color: rgba(#FFFFFF, 1)
+  cursor: pointer
 
   .border
     background-color: rgba(#000000, .30)
 
 .border
   height: 100%
-  background-color: black
+  background-color: #484848
   float:left
   width: 20px
   transition-duration: .3s
+  cursor: pointer
+
+.border:hover
+  color: #FFFFFF
 
 body .icon-double-angle-left
   font-size: 120px
@@ -94,7 +100,7 @@ body .icon-double-angle-right
   top: 50%
   position: absolute
   margin-top: -22px
-  padding: 0 2px
+  padding: 0 3px
   display: none
 
 .closed 
@@ -128,6 +134,149 @@ body .icon-double-angle-right
 #right
   overflow-x: hidden
 
+h1
+  font-size: 45px
+  font-family: 'Roboto Condensed'
+  font-weight: 400
+  letter-spacing: 3px
+  text-align: center
+
+h2
+  font-size: 35px
+  font-family: 'Roboto Condensed'
+  font-weight: 400
+  letter-spacing: 3px
+  text-align: center
+
+h3
+  font-size: 25px
+  font-family: 'Roboto Cndensed'
+  font-weight: 400
+  letter-spacing: 3px
+
+.twitterbutton
+  width: 250px
+  height: 25px
+  //background: linear-gradient(top, rgb(70, 214, 219), rgb(37, 146, 173))
+  background-color: rgba(70, 214, 219, 1)
+  font-family: 'Lato'
+  color: white
+  font-weight: 600
+  letter-spacing: -1px
+  font-size: 20px
+  border-radius: 6px
+  text-align: center  
+  padding: 10px 0px
+  transition-duration: .3s
+  margin: 200px auto
+  box-shadow: 3px 3px 0px #FFFFFF;
+
+  &:hover
+    background-color: rgba(70, 214, 219, .8)
+
+.icon-twitter
+  padding: 5px 10px 0 0
+  text-align: center
+
+.icon-book
+  margin: 0 40px
+  color: #3B8686
+
+.splashtitle
+  font-family: 'Lato', 'sans-serif'
+  color: #BCC7A3
+  margin: 0 auto  
+  text-align: center
+
+h1.splashtitle
+  font-size: 130px
+  letter-spacing: -12px 
+  font-weight: 700
+  color: #79BD9A
+  text-shadow: 2px 2px 0px #A8DBA8;
+  margin: 40px auto
+
+h2.splashtitle
+  font-size: 30px
+  font-weight: 300
+  margin: -30 auto
+
+h3.splashtitle
+  font-size: 22px
+  font-weight: 300
+  letter-spacing: 1px
+  text-align: center
+  display: inline-block
+  margin-top: 30px
+  color: #A8DBA8
+
+p.splashtitle
+  font-size: 30px
+  font-weight: 300
+
+.wrapper
+  margin: 80px auto
+  overflow: hidden
+  max-width: 780px 
+
+
+.container
+  width: 200px
+  float: left
+  height: 340px
+  background-color: white 
+  border-radius: 10px
+  margin: 30px
+
+  .icon
+    font-size: 70px
+    text-align: center
+    color: #0B486B
+    text-shadow: 3px 3px 3px rgba(#000000, .2)
+
+.twitsmall
+  width: 170px
+  height: 20px
+  //background: linear-gradient(top, rgb(70, 214, 219), rgb(37, 146, 173))
+  background-color: #DFF8FF
+  font-family: 'Lato'
+  color: rgba(#000000, .2)
+  font-weight: 600
+  letter-spacing: -1px
+  font-size: 14px
+  border-radius: 6px
+  text-align: center  
+  padding: 14px 0px
+  transition-duration: .3s
+  box-shadow: 2px 2px 0px #FFFFFF;
+  margin: 30px auto 10px auto
+
+  &:hover
+    background-color: rgba(70, 214, 219, .5)
+    color: white
+
+  .icon.icon-twitter
+    font-size: 18px
+    padding: 0 5px
+    color: inherit
+    text-shadow: none 
+
+.holder
+  height: 110px
+  padding: 20px 0
+
+.icon.icon-hand-down
+  color: white
+  font-size: 300px
+  position: relative
+  top: 100px
+  text-shadow: 3px 3px 3px rgba(#000000, .4)
+
+
+.blue
+  width: 100% 
+  background-color: #0B486B
+  height: 700px
 
 
 
@@ -136,6 +285,4 @@ body .icon-double-angle-right
 
 
 
-
-  
 

@@ -60,7 +60,13 @@ function scroller(){
     $('#right').css({'margin-top':-diff})
 })
 }
-
+$(document).ready(function() {
+    $("body").css("display", "none");
+});
+$(document).ready(function() {
+        $("body").css("display", "none");
+        $("body").slideDown(500);
+});
 
 
 
