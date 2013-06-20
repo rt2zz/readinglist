@@ -18,8 +18,12 @@ app.route("/logout", require('./routes/login.js').logout).nocache()
 app.route("/article/:id", require('./routes/articles.js').article).nocache()
 app.route("/articles", require('./routes/articles.js').pocketList).nocache()
 app.route("/reader", require('./routes/reader.js')).nocache()
+
 app.route("/twitter", require('./routes/twitterAuth.js').requestToken).nocache()
 app.route("/twitter/access", require('./routes/twitterAuth.js').accessToken).nocache()
+app.route("/splash", function(req, res){
+    res.render('splash.jade')
+  }).nocache()
 
 
 app.route("/auth/login", require('./routes/login.js').authRequest).nocache()

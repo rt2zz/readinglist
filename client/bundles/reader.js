@@ -58,9 +58,12 @@ function scroller(){
     var maxOffset = docHeight-windowHeight
     var diff = maxDiff*(offset/maxOffset)
     $('#right').css({'margin-top':-diff})
-})
+  })
 }
 
+$(document).ready(function() {
+        $("body").css("margin-right", "-100%").animate({"margin-right": 0})
+});
 
 
 
