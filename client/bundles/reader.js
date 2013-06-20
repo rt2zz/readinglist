@@ -62,7 +62,7 @@ function scroller(){
 }
 
 $(document).ready(function() {
-        $("body").css("margin-right", "-100%").animate({"margin-right": 0})
+        $("body").css("margin-left", "100%").animate({"margin-left": 0})
 });
 
 
