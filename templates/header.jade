@@ -1,13 +1,32 @@
 ul.topnav
-  .brand q.me
-  .links
-    li
-     a(href='#') About
-    li
-      a(href='#') Account
-    li
-      a(href='#') Help
-    li
-      a(href='#') About
-    li
-      a(href='#') Contact
+  .brand
+    span.icon.icon-bookmark-empty
+    |q.me
+  .navwrap
+    .links
+      li
+       a(href='#')
+         span.icon.icon-book
+         |About
+      li
+        a(href='#') 
+          span.icon.icon-user
+          |Account
+      li
+        a.set(href='#') 
+          span.icon.icon-cog  
+          |Settings
+      li
+        a(href='#') 
+          span.icon.icon-question-sign
+          |Help
+.settings
+  | Font 
+  .icon.icon-font
+  .icon.icon-caret-up
+  .icon.icon-caret-down
+  | Font Size
+  select#fonts
+    option(value="Chelsea Market") Chelsea Market
+    option(value="Droid Serif") Droid Serif
+    option(value="Ruluko") Ruluko

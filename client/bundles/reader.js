@@ -5,7 +5,7 @@ $(document).ready(function(){
 
   var $enav = $('.topnav')
   var margin = $enav.outerHeight()
-  var dur = 300
+  var dur = 200
 
   setInterval(function(){
     last=offset
@@ -80,5 +80,26 @@ $(document).ready(function() {
         $("body").css("margin-left", "100%").animate({"margin-left": 0})
 });
 
+$(document).ready(function() {
+  $(".set").click(function(){
+    $(".settings").toggle()
+    $(".set").toggleClass("active")
+  })
 
+})
+$(document).ready(function() {
+  $('select#fonts').fontSelector({
+    options: {
+      inSpeed: 250,
+      outSpeed: "slow"
+    },
+    
+    fontChange: function(e, ui) {
+      $(".content").css({"font-family":ui.font})
+    console.log(ui.font)
+    },
+    styleChange: function(e, ui) {
 
+    }
+  });
+})
