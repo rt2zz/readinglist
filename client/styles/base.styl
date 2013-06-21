@@ -8,13 +8,13 @@ a
 .topnav
   width: 100%
   height: 40px
-  background-color: #0B486B
+  background-color: black
   margin: 0 0 40px 0
   padding: 0
   font-family: 'Lato'
   font-size: 24px
   border-bottom: 2px solid black
-  color: #79BD9A
+  color: black
   text-align:left
   position:absolute
 
@@ -22,7 +22,12 @@ a
     color: #79BD9A
     font-weight: 300
     padding: 0 30px
-    font-size: 22px
+    font-size: 14px
+    margin: 10px auto
+    transition-duration: .3s
+
+    &:hover, &.active
+      color: white
 
   li 
     display: inline-block
@@ -51,11 +56,12 @@ body.down
 .content
   width: 40%
   margin: 0 10%
-  letter-spacing: 2px
-  font-size: 20px
-  font-family: 'Lato'
-  font-weight: 300
+  letter-spacing: 0px
+  font-size: 14px
+  font-family: 'Roboto'
+  font-weight: normal
   line-height: 150%
+  padding-top: 40px
 
 .topnav.fixed
   position: fixed
@@ -152,24 +158,26 @@ body .icon-double-angle-right
 
   &.selected
     background:#cfd
+.content
 
-h1
-  font-size: 45px
-  font-family: 'Roboto Condensed'
-  font-weight: 400
-  letter-spacing: 3px
+  h1
+    font-size: 45px
+    font-weight: 700
+    letter-spacing: 1px
+    margin: 30px auto
+    line-height: 120%
 
-h2
-  font-size: 35px
-  font-family: 'Roboto Condensed'
-  font-weight: 400
-  letter-spacing: 3px
+  h2
+    font-size: 35px
+    font-weight: 400
+    letter-spacing: 0px
+    margin: 30px auto
+    line-height: 120%
 
-h3
-  font-size: 25px
-  font-family: 'Roboto Cndensed'
-  font-weight: 400
-  letter-spacing: 3px
+  h3
+    font-size: 25px
+    font-weight: 400
+    letter-spacing: 0px
 
 .twitterbutton
   width: 250px
@@ -181,7 +189,6 @@ h3
   font-weight: 600
   letter-spacing: -1px
   font-size: 20px
-  border-radius: 6px
   text-align: center  
   padding: 10px 0px
   transition-duration: .3s
@@ -261,7 +268,6 @@ p.splashtitle
   font-weight: 600
   letter-spacing: -1px
   font-size: 14px
-  border-radius: 6px
   text-align: center  
   padding: 14px 0px
   transition-duration: .3s
@@ -301,14 +307,40 @@ p.splashtitle
 .brand
   font-family: 'Lato'
   letter-spacing: -5px 
-  text-shadow: 4px 2px 0px #79BD9A;
-  color: white
+  text-shadow: 2px 2px 0px #79BD9A;
+  color: #F8F8F8
   margin: -9px auto
   padding: 0 30px
   font-size: 40px
-  position:absolute
+  position: absolute
+
+  .icon
+    margin-top: 10px
+    display: inline-block
 
 .links
   margin-left:200px
-  margin-top:6px
+  margin-top:-4px
+
+.navwrap
+  margin-top: 12px
+
+  span.icon
+    color: inherit
+    font-size: 16px
+    margin: 3px 8px
+    display: inline-block
+
+
+p.author
+  color: #79BD9A
+
+.settings
+  height: 100px
+  width: 100%
+  position: relative
+  top: 40px
+  background-color: red
+  display: none
+
 
