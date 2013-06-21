@@ -11,8 +11,8 @@
 
 $.widget('oal.fontSelector', {
   options: {
-    inSpeed: 500,
-    outSpeed: 250,
+    inSpeed: 100,
+    outSpeed: 100,
     bold: false,
     italic: false,
     underline: false

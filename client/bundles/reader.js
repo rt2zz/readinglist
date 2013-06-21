@@ -103,3 +103,9 @@ $(document).ready(function() {
     }
   });
 })
+$(document).ready(function() {
+
+$("select#size").change(function() {
+    $('.content').css("font-size", $(this).val() + "px");
+});
+})
