@@ -9,7 +9,7 @@ function Account (id){
   this.aliases = []
 }
 
-Account.prototype.data = function(data){
+Account.prototype.setData = function(data){
   this.data = data
   return this
 }

@@ -5,7 +5,7 @@ $(document).ready(function(){
 
   var $enav = $('.topnav')
   var margin = $enav.outerHeight()
-  var dur = 200
+  var dur = 150
 
   setInterval(function(){
     last=offset
@@ -16,9 +16,9 @@ $(document).ready(function(){
     if(delta<-120){
       if(!$enav.hasClass('fixed')){
         $(".brand").css({'left': '-100%'}).animate({"left":"0px"}, dur)
-        $enav.addClass("fixed").css({'margin-top': '-'+margin+'px'}).animate({'margin-top':0}, {duration:dur})
+        $enav.addClass("fixed").css({'margin-top': '-'+margin+'px'}).animate({'margin-top':0}, dur)
         //hide().slideDown({duration:100, easing:'linear'})
-        $("body").animate({"margin-top":margin+'px'}, {duration:dur})
+        $("body").animate({"margin-top":margin+'px'}, dur)
 
       }
     }

@@ -1,6 +1,9 @@
 var Account = require('../models/account.js')
 var request = require('request')
 var qs = require('querystring')
+var async = require('async')
+
+var twitter = require('ntwitter');
 
 module.exports.user = function(req, res){
   console.log('Account Page')
@@ -44,13 +47,36 @@ module.exports.setupComplete = function(req, res){
   console.log('setupcomplete')
   console.log(req)
   req.body(function(err, body){
-    console.log(body)
-    var follows = body.follows.split(',')
     req.session.get('user', function(err, account){
-      Account(account.aliases[0]).follow('twitter', follows).save('merge', function(err, account){
-        console.log('cb account', account)
-        res.redirect('/reader')
+      var twit = new twitter({
+        consumer_key: 'J2XcZYlBFU0hjrt4ooYqWg',
+        consumer_secret: 'vbh21yfR9VbI80BapiswGi6IsfuAYwUYPIOwjjQqvM',
+        access_token_key: account.twitter.oauth_token,
+        access_token_secret: account.twitter.oauth_token_secret
+      });
+
+      console.log(body)
+      var follows = body.follows.split(',')
+      var gets = follows.map(function(id){
+        return function(cb){
+          twit.getUserTimeline({user_id: id, count:10}, function(err, data){
+            cb(null, data)
+          })
+        }
       })
+
+      async.parallel(gets, function(err, results){
+        console.log('results', results)
+      })
+
+      res.end('hi')
     })
+
+    // req.session.get('user', function(err, account){
+    //   Account(account.aliases[0]).follow('twitter', follows).save('merge', function(err, account){
+    //     console.log('cb account', account)
+    //     res.redirect('/reader')
+    //   })
+    // })
   })
 }
