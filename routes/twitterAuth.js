@@ -33,7 +33,7 @@ module.exports.accessToken = function(req, res){
   var q = 'https://api.twitter.com/oauth/access_token'
   request.post({url:q, oauth:oauth}, function (e, r, body) {
     var data = qs.parse(body)
-    Account('twitter:'+data.screen_name).preferredAlias(data.screen_name).data({twitter: data}).save('merge', function(err, account){
+    Account('twitter:'+data.screen_name).preferredAlias(data.screen_name).setData({twitter: data}).save('merge', function(err, account){
       req.session.set('user', account, function(err){
         if(account.wizard == 1) res.redirect('/reader')
         else res.redirect('/setup')
