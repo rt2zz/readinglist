@@ -9,16 +9,23 @@ a {
 
 .topnav {
   width: 100%;
-  height: 60px;
-  background-color: #BCC6CC;
-  margin: 0;
+  height: 40px;
+  background-color: #0B486B;
+  margin: 0 0 40px 0;
   padding: 0;
   font-family: 'Lato';
   font-size: 24px;
+  border-bottom: 2px solid black;
+  display: inline-block;
+  float: left;
+  color: #79BD9A;
 }
 
 .topnav a {
-  color: black;
+  color: #79BD9A;
+  font-weight: 300;
+  padding: 0 30px;
+  font-size: 22px;
 }
 
 .topnav li  ul li {
@@ -29,13 +36,11 @@ a {
 .topnav li  ul {
   display: none;
   position: absolute;
-  background-color: #BCC6CC;
   padding: 0;
 }
 
 .topnav li {
   display: inline-block;
-  margin: 20px 20px;
 }
 
 .topnav li:hover ul {
@@ -192,7 +197,6 @@ h1 {
   font-family: 'Roboto Condensed';
   font-weight: 400;
   letter-spacing: 3px;
-  text-align: center;
 }
 
 h2 {
@@ -200,7 +204,6 @@ h2 {
   font-family: 'Roboto Condensed';
   font-weight: 400;
   letter-spacing: 3px;
-  text-align: center;
 }
 
 h3 {
@@ -352,4 +355,20 @@ p.splashtitle {
   width: 100%;
   background-color: #0B486B;
   height: 700px;
+}
+
+.readerwrap {
+  text-align: left;
+}
+
+.brand {
+  font-family: 'Lato';
+  letter-spacing: -5px;
+  text-shadow: 4px 2px 0px #79BD9A;
+  color: white;
+  margin: -9px auto;
+  display: inline-block;
+  padding: 0 30px;
+  font-size: 40px;
+  margin-left: -100px;
 }
