@@ -6,41 +6,39 @@ ul.topnav
     .links
       li
        a(href='#')
-         span.icon.icon-book
-         |About
+         span.icon.icon-heart-empty
+         |ABOUT
       li
         a(href='#') 
           span.icon.icon-user
-          |Account
+          |PROFILE
       li
         a.set(href='#') 
           span.icon.icon-cog  
-          |Settings
+          |SETTINGS
       li
         a(href='#') 
           span.icon.icon-question-sign
-          |Help
-.settings
-  | Font 
-  .icon.icon-font
-  .icon.icon-caret-up
-  .icon.icon-caret-down
-  | Font Size
-  select#fonts
-    option(value="Roboto") Roboto
-    option(value="Droid Serif") Droid Serif
-    option(value="Ruluko") Ruluko
-    option(value="Ubuntu") Ubuntu
-    option(value="Helvetica") Helvetica
-    option(value="Lato") Lato
-    option(value="Arimo") Arimo
-    option(value="Droid Serif") Droid Serif
-    option(value="PT Serif") PT Serif
-  .fontselector
-    select#size
-      option(value="10") 10 
-      option(value="15") 15
-      option(value="20") 20 
-      option(value="25") 25
+          |HELP
+  .settings
+    .setwrap
+      | Font 
+      select#fonts
+        option(value="Roboto") Roboto
+        option(value="Droid Serif") Droid Serif
+        option(value="Ruluko") Ruluko
+        option(value="Ubuntu") Ubuntu
+        option(value="Helvetica") Helvetica
+        option(value="Lato") Lato
+        option(value="Arimo") Arimo
+        option(value="Droid Serif") Droid Serif
+        option(value="PT Serif") PT Serif
+      | Font Size
+      .fontselector
+        select#size
+          option(value="10") 10 
+          option(value="15") 15
+          option(value="20") 20 
+          option(value="25") 25
 
 

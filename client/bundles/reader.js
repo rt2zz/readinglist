@@ -84,6 +84,7 @@ $(document).ready(function() {
   $(".set").click(function(){
     $(".settings").toggle()
     $(".set").toggleClass("active")
+    $(".icon.icon-cog").toggleClass("icon-spin")
   })
 
 })
