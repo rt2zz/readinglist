@@ -4,7 +4,7 @@ block content
   a.next(href='#') Next
   h1 Account
   each friend in friends
-    .friend.selected(tid=friend.id)
+    .friend(tid=friend.id)
       img(src=friend.profile_image_url)
       h2= friend.name
       p= friend.followers_count

@@ -25,6 +25,7 @@ app.route("/splash", function(req, res){
     res.render('splash.jade')
   }).nocache()
 
+app.route('/twitter/setup', require('./routes/articler.js').a).nocache()
 
 app.route("/auth/login", require('./routes/login.js').authRequest).nocache()
 app.route("/account", require('./routes/account.js').user).condition(requireAuth).nocache()

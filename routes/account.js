@@ -44,32 +44,28 @@ module.exports.setup = function(req, res){
 }
 
 module.exports.setupComplete = function(req, res){
-  console.log('setupcomplete')
-  console.log(req)
   req.body(function(err, body){
     req.session.get('user', function(err, account){
-      var twit = new twitter({
-        consumer_key: 'J2XcZYlBFU0hjrt4ooYqWg',
-        consumer_secret: 'vbh21yfR9VbI80BapiswGi6IsfuAYwUYPIOwjjQqvM',
-        access_token_key: account.twitter.oauth_token,
-        access_token_secret: account.twitter.oauth_token_secret
-      });
-
-      console.log(body)
+      console.log('ACCOUNT', account)
+      console.log('BODY', body)
       var follows = body.follows.split(',')
-      var gets = follows.map(function(id){
-        return function(cb){
-          twit.getUserTimeline({user_id: id, count:10}, function(err, data){
-            cb(null, data)
-          })
-        }
-      })
 
-      async.parallel(gets, function(err, results){
-        console.log('results', results)
+      var params = {
+        oauth: {
+          oauth_token: account.twitter.oauth_token,
+          oauth_token_secret: account.twitter.oauth_token_secret
+        },
+        follows: follows
+      }
+      
+      var opts = {
+        body: params,
+        json: true
+      }
+      request.post('http://localhost:8001/twitter/setup', opts, function(e, r, body){
+        console.log(body)
+        res.end('donezos')
       })
-
-      res.end('hi')
     })
 
     // req.session.get('user', function(err, account){
