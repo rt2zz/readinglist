@@ -1,5 +1,5 @@
 var levelup = require('levelup')
-var db = levelup('./dbs/user', {valueEncoding: 'json', keyEncoding: 'json'})
+var db = levelup('./db/user', {valueEncoding: 'json', keyEncoding: 'json'})
 var _ = require('lodash')
 var async = require('async')
 

@@ -9,6 +9,6 @@ module.exports.a = function(req, res){
   }
   request.post('http://localhost:8001/twitter/setup', opts, function(e, r, body){
     console.log(body)
-    res.end('donezos')
+    res.end('yo')
   })
 }

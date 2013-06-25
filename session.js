@@ -1,3 +1,3 @@
-var session = require('level-session')('./dbs/session')
+var session = require('level-session')('./db/session')
 
 module.exports = session
