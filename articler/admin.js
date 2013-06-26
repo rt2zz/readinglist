@@ -5,7 +5,7 @@ var articledb = require('./db/article.js')
 
 net.createServer(function (c) {
   c.pipe(multilevel.server(articledb)).pipe(c)
-}).listen(3011)
+}).listen(4003)
 
 
 // Cannot currently expose session db because levelweb -> multilevel assumes json keyEncoding.  

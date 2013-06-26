@@ -6,7 +6,7 @@ function rootCb(){
 }
 
 function testCb(){
-  console.log('test cb working')
+  console.log('test cb wofrking')
 }
 
 function testVar(arg){

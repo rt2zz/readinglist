@@ -44,4 +44,4 @@ function twitterSetup(){
 
 require('./admin.js')
 
-server.listen(8001);
+server.listen(3003);
