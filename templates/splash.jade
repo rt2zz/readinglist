@@ -1,38 +1,58 @@
 include head
-  body
-    .bigwrap
-      h1.splashtitle
-        .icon.icon-bookmark-empty 
-        |q.me
-      h2.splashtitle (A queue for your cool stuff) 
-      .wrapper  
+body
+  .background
+  .tophead  
+    h1.splashtitle
+      .icon.icon-bookmark-empty 
+      |q.me
+    h2.splashtitle (A queue for your cool stuff) 
+  .bigwrap  
+    .wrapper  
+      .container
+        h3.splashtitle
+          .icon.icon-twitter-sign<br/>
+          .holder
+            | Get all the content from Twitter without the #crap
+          a.twitsmall(href="/twitter")
+            .icon.icon-twitter
+            | Sign in with Twitter
+      .container
+        h3.splashtitle
+          .icon.icon-list-ol<br/>
+          .holder
+            | Keep an organized reading list and control every aspect of it
+          a.twitsmall(href="/twitter")
+            .icon.icon-twitter
+            | Sign in with Twitter
+      .container  
+        h3.splashtitle
+          .icon.icon-share-alt<br/>
+          .holder
+            | Share things easily with your friends and followers  
+          a.twitsmall(href="/twitter")
+            .icon.icon-twitter
+            | Sign in with Twitter  
+    .blue   
+     h2.easy 3 Easy Steps
+      .wrapbottom     
         .container
           h3.splashtitle
             .icon.icon-twitter-sign<br/>
             .holder
-              | Get all the content from Twitter without the #crap
-            .twitsmall
-              .icon.icon-twitter
-              | Sign in with Twitter
+              | 1. Sign in with Twitter and choose from whom you already follow
         .container
           h3.splashtitle
-            .icon.icon-list-ol<br/>
+            .icon.icon-star<br/>
             .holder
-              | Keep an organized reading list and control every aspect of it
-            .twitsmall
-              .icon.icon-twitter
-              | Sign in with Twitter
-        .container  
+              | 2. Select the content you want to put in your queue
+        .container
           h3.splashtitle
-            .icon.icon-share-alt<br/>
+            .icon.icon-beer<br/>
             .holder
-              | Share things easily with your friends and followers  
-            .twitsmall
-              .icon.icon-twitter
-              | Sign in with Twitter
-      .blue        
-        .icon.icon-hand-down
-        a(href="/reader")
+              | 3. Read, share, and enjoy!
+      .icon.icon-hand-down
+        a(href="/twitter")
           .twitterbutton
             .icon.icon-twitter
             | Sign In With Twitter
+

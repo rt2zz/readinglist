@@ -3,6 +3,24 @@
   color: #585;
 }
 
+.tophead {
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.background {
+  background-image: url('/asset/images/geometry12.jpg');
+  opacity: 0.5;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  filter: alpha(opacity=50);
+  width: 100%;
+  height: 400px;
+  position: fixed;
+  z-index: -50;
+  top: 0;
+}
+
 a {
   text-decoration: none;
 }
@@ -58,13 +76,18 @@ a {
   display: block;
 }
 
-body {
+.bigwrap {
   margin: 0px 0px;
   background: -ms-linear-gradient(to bottom, #f2fbe6 0%,#ffffff 70%) /* W3C */;
   background: -moz-linear-gradient(to bottom, #f2fbe6 0%,#ffffff 70%) /* W3C */;
   background: -webkit-linear-gradient(to bottom, #f2fbe6 0%,#ffffff 70%) /* W3C */;
   background: linear-gradient(to bottom, #f2fbe6 0%,#ffffff 70%) /* W3C */;
   text-align: center;
+  width: 100%;
+  height: 900px;
+  position: absolute;
+  margin-top: 350px;
+  box-shadow: -2px -2px 100px rgba(0, 0, 0, .3);
 }
 
 body.down {
@@ -157,6 +180,7 @@ body .icon-double-angle-right {
   border-bottom: 2px dashed black;
   line-height: 2px;
   padding: 0 5px;
+  width: 366px;
 }
 
 .title {
@@ -185,6 +209,11 @@ body .icon-double-angle-right {
 .friend {
   height: 100px;
   border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .friend h2 {
@@ -238,6 +267,7 @@ body .icon-double-angle-right {
   padding: 10px 0px;
   margin: 200px auto;
   box-shadow: 3px 3px 0px #FFFFFF;
+  text-shadow: 0px 0px 0px #000000;
   -ms-transition-duration: .3s;
   -moz-transition-duration: .3s;
   -webkit-transition-duration: .3s;
@@ -269,8 +299,8 @@ h1.splashtitle {
   font-size: 130px;
   letter-spacing: -12px;
   font-weight: 700;
-  color: #79BD9A;
-  text-shadow: 2px 2px 0px #A8DBA8;
+  color: #0B486B;
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, .5);
   margin: 40px auto;
 }
 
@@ -278,6 +308,7 @@ h2.splashtitle {
   font-size: 30px;
   font-weight: 300;
   margin: -30 auto;
+  color: #0B486B;
 }
 
 h3.splashtitle {
@@ -287,7 +318,7 @@ h3.splashtitle {
   text-align: center;
   display: inline-block;
   margin-top: 30px;
-  color: #A8DBA8;
+  color: #A8DB6D;
 }
 
 p.splashtitle {
@@ -330,6 +361,7 @@ p.splashtitle {
   padding: 14px 0px;
   box-shadow: 2px 2px 0px #FFFFFF;
   margin: 30px auto 10px auto;
+  display: block;
   -ms-transition-duration: .3s;
   -moz-transition-duration: .3s;
   -webkit-transition-duration: .3s;
@@ -359,12 +391,39 @@ p.splashtitle {
   position: relative;
   top: 100px;
   text-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+  margin-top: -100px;
 }
 
 .blue {
   width: 100%;
   background-color: #0B486B;
-  height: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.blue .container .icon,
+.blue .container .holder {
+  -ms-transition-duration: .3s;
+  -moz-transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+}
+
+.blue .container:hover .icon,
+.blue .container:hover .holder {
+  color: hsl(202,81%,63%);
+}
+
+.blue .container .holder {
+  color: #0B486B;
+}
+
+.blue .container {
+  background-color: #06293d;
+  box-shadow: inset 1px 1px 3px 3px rgba(0, 0, 0, .3);
+  padding: 5px;
+  height: 300px;
+  margin: 25px;
 }
 
 .readerwrap {
@@ -420,4 +479,21 @@ p.author {
 
 .setwrap {
   float: left;
+}
+
+.easy {
+  font-family: 'Titillium Web';
+}
+
+.wrapbottom {
+  margin: 80px auto;
+  overflow: hidden;
+  max-width: 780px;
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .background {
+    background-image: url("/asset/images/geometry12@2x.jpg");
+    background-size: contain;
+  }
 }
