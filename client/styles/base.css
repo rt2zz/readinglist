@@ -277,7 +277,7 @@ body .icon-double-angle-right {
 
 .twitterbutton:hover {
   background-color: hsl(182,67%,70%);
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, .3);
 }
 
 .icon-twitter {
@@ -301,7 +301,7 @@ h1.splashtitle {
   font-size: 130px;
   letter-spacing: -12px;
   font-weight: 700;
-  color: #0B486B;
+  color: #20B2AA;
   text-shadow: 3px 3px 4px rgba(0, 0, 0, .5);
   margin: 40px auto;
 }
@@ -355,7 +355,7 @@ p.splashtitle {
   height: 20px;
   background-color: #DFF8FF;
   font-family: 'Lato';
-  color: rgba(0, 0, 0, .2);
+  color: rgba(0, 0, 0, .4);
   font-weight: 600;
   letter-spacing: -1px;
   font-size: 14px;
