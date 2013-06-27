@@ -406,6 +406,9 @@ p.splashtitle {
   background-color: #0B486B;
   margin: 0 auto;
   overflow: hidden;
+  background-image: url('/asset/images/cityscape.png');
+  background-repeat: no-repeat;
+  background-position: left bottom;
 }
 
 .blue .container .icon,
@@ -535,6 +538,13 @@ p.author {
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
   .background {
     background-image: url("/asset/images/geometry12@2x.jpg");
+    background-size: contain;
+  }
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .blue {
+    background-image: url("/asset/images/cityscape@2x.png");
     background-size: contain;
   }
 }
