@@ -1,7 +1,5 @@
 var app = require('./serve.js')
 
-var stylwriter = require('stylwriter')
-
 //@todo: Super simple & niave cache flusher.  needs work, and to be split off into dev only script
 var watch = require('watch')
 watch.createMonitor('./templates', function (monitor) {
