@@ -1,0 +1,79 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'https://github.com/rt2zz/jaws/archive/master.zip' ]
+2 info using npm@1.2.18
+3 info using node@v0.10.5
+4 verbose read json /Users/zack/apps/qme/web/package.json
+5 verbose read json /Users/zack/apps/qme/web/node_modules/async/package.json
+6 verbose read json /Users/zack/apps/qme/web/node_modules/cookies/package.json
+7 verbose read json /Users/zack/apps/qme/web/node_modules/diffbot/package.json
+8 verbose read json /Users/zack/apps/qme/web/node_modules/jade/package.json
+9 verbose read json /Users/zack/apps/qme/web/node_modules/keygrip/package.json
+10 verbose read json /Users/zack/apps/qme/web/node_modules/level-session/package.json
+11 verbose read json /Users/zack/apps/qme/web/node_modules/leveldown/package.json
+12 verbose read json /Users/zack/apps/qme/web/node_modules/levelup/package.json
+13 verbose read json /Users/zack/apps/qme/web/node_modules/lodash/package.json
+14 verbose read json /Users/zack/apps/qme/web/node_modules/multilevel/package.json
+15 verbose read json /Users/zack/apps/qme/web/node_modules/npm-debug.log/package.json
+16 verbose read json /Users/zack/apps/qme/web/node_modules/ntwitter/package.json
+17 verbose read json /Users/zack/apps/qme/web/node_modules/pocket/package.json
+18 verbose read json /Users/zack/apps/qme/web/node_modules/readability/package.json
+19 verbose read json /Users/zack/apps/qme/web/node_modules/readabilitySAX/package.json
+20 verbose read json /Users/zack/apps/qme/web/node_modules/redsess/package.json
+21 verbose read json /Users/zack/apps/qme/web/node_modules/request/package.json
+22 verbose read json /Users/zack/apps/qme/web/node_modules/styl/package.json
+23 verbose read json /Users/zack/apps/qme/web/node_modules/stylwriter/package.json
+24 verbose read json /Users/zack/apps/qme/web/node_modules/templar/package.json
+25 verbose read json /Users/zack/apps/qme/web/node_modules/watch/package.json
+26 verbose read json /Users/zack/apps/qme/web/package.json
+27 verbose cache add [ 'https://github.com/rt2zz/jaws/archive/master.zip', null ]
+28 verbose cache add name=undefined spec="https://github.com/rt2zz/jaws/archive/master.zip" args=["https://github.com/rt2zz/jaws/archive/master.zip",null]
+29 verbose parsed url { protocol: 'https:',
+29 verbose parsed url   slashes: true,
+29 verbose parsed url   auth: null,
+29 verbose parsed url   host: 'github.com',
+29 verbose parsed url   port: null,
+29 verbose parsed url   hostname: 'github.com',
+29 verbose parsed url   hash: null,
+29 verbose parsed url   search: null,
+29 verbose parsed url   query: null,
+29 verbose parsed url   pathname: '/rt2zz/jaws/archive/master.zip',
+29 verbose parsed url   path: '/rt2zz/jaws/archive/master.zip',
+29 verbose parsed url   href: 'https://github.com/rt2zz/jaws/archive/master.zip' }
+30 silly lockFile 7ffb559c-om-rt2zz-jaws-archive-master-zip https://github.com/rt2zz/jaws/archive/master.zip
+31 verbose lock https://github.com/rt2zz/jaws/archive/master.zip /Users/zack/.npm/7ffb559c-om-rt2zz-jaws-archive-master-zip.lock
+32 verbose addRemoteTarball [ 'https://github.com/rt2zz/jaws/archive/master.zip', null ]
+33 info retry fetch attempt 1 at 14:56:41
+34 verbose fetch to= /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/tmp.tgz
+35 http GET https://github.com/rt2zz/jaws/archive/master.zip
+36 http 200 https://github.com/rt2zz/jaws/archive/master.zip
+37 verbose tar unpack /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/tmp.tgz
+38 silly lockFile 43634856-1881-0-08275472628884017-package /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/package
+39 verbose lock /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/package /Users/zack/.npm/43634856-1881-0-08275472628884017-package.lock
+40 silly lockFile b7dabf5e-1881-0-08275472628884017-tmp-tgz /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/tmp.tgz
+41 verbose lock /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/tmp.tgz /Users/zack/.npm/b7dabf5e-1881-0-08275472628884017-tmp-tgz.lock
+42 silly gunzTarPerm modes [ '755', '644' ]
+43 verbose read json /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/package/package.json
+44 error not a package /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/tmp.tgz
+45 silly lockFile 43634856-1881-0-08275472628884017-package /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/package
+46 silly lockFile 43634856-1881-0-08275472628884017-package /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/package
+47 silly lockFile b7dabf5e-1881-0-08275472628884017-tmp-tgz /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/tmp.tgz
+48 silly lockFile b7dabf5e-1881-0-08275472628884017-tmp-tgz /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/tmp.tgz
+49 silly lockFile 7ffb559c-om-rt2zz-jaws-archive-master-zip https://github.com/rt2zz/jaws/archive/master.zip
+50 silly lockFile 7ffb559c-om-rt2zz-jaws-archive-master-zip https://github.com/rt2zz/jaws/archive/master.zip
+51 error Error: ENOENT, open '/var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/package/package.json'
+52 error If you need help, you may report this log at:
+52 error     <http://github.com/isaacs/npm/issues>
+52 error or email it to:
+52 error     <npm-@googlegroups.com>
+53 error System Darwin 12.3.0
+54 error command "node" "/usr/local/bin/npm" "install" "https://github.com/rt2zz/jaws/archive/master.zip"
+55 error cwd /Users/zack/apps/qme/web
+56 error node -v v0.10.5
+57 error npm -v 1.2.18
+58 error path /var/folders/2s/8t30_lqs4370s2ysq1lxzmxw0000gn/T/npm-65286/1372370201881-0.08275472628884017/package/package.json
+59 error code ENOENT
+60 error errno 34
+61 verbose exit [ 34, true ]
