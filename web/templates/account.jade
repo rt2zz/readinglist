@@ -1,0 +1,8 @@
+extends main.jade
+
+block content
+  h1 Account
+    pre= JSON.stringify(account, null, 2)
+
+block head
+  script(src="http://localhost:3001/bundle/auth.js")
