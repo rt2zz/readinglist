@@ -1,4 +1,5 @@
 var Account = require('../models/account.js')
+var request = require('request')
 
 module.exports = function(req, res){
   req.user(function(err, account){
@@ -8,11 +9,11 @@ module.exports = function(req, res){
       var opts = {
         body: {
           sources: sources
-        }
+        },
         json: true
       }
-      request.post('http://localhost:4003/list', opts, function(e, r, body){
-        console.log(body)
+      request.post('http://localhost:3003/list', opts, function(e, r, body){
+        console.log('body.articles', body.articles)
         var locals = {
           articles: body.articles
         }
@@ -20,5 +21,4 @@ module.exports = function(req, res){
       })
     })
   })
-  res.render('reader.jade')
 }

@@ -7,15 +7,17 @@ function Articles (sources){
   this.sources = sources
 }
 
-Article.prototype.list = function(cb){
+Articles.prototype.list = function(cb){
   var articles = []
+  var len = this.sources.length
+  var ends = 0
   this.sources.forEach(function(source){
     var iden = 'article~'+source+'~'
     db.createReadStream({
       start: iden
     })
     .on('data', function (data) {
-      console.log(data.key, '=', data.value)
+      console.log('KEY', data.key)
       if(data.key.indexOf(iden) != 0){
         console.log('iden not 0')
         this.destroy()
@@ -32,9 +34,13 @@ Article.prototype.list = function(cb){
     })
     .on('end', function () {
       console.log('Stream closed')
-      cb(articles)
+      ends++
+      console.log('ends now', ends)
+      if(ends == len){
+        console.log('ends = length')
+        cb(null, articles)
+      }  
     })
-    this.uid = 'article~'+source+'~'+ new Date().getTime() +'~' + this.url
   })
 }
 
