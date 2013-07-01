@@ -240,26 +240,60 @@ body .icon-double-angle-right
     letter-spacing: 0px
 
 .selectbutton
-  width: 350px
-  height: 40px
+  width: 150px
+  height: 35px
   //background: linear-gradient(top, rgb(70, 214, 219), rgb(37, 146, 173))
   background-color: hsl(182,67%,50%)
   font-family: 'Lato'
   color: white
   font-weight: 600
   letter-spacing: -1px
-  font-size: 28px
+  font-size: 20px
   text-align: center  
-  padding: 15px 0px 0px
+  padding: 10px 0px 0px
   transition-duration: .3s
-  margin: 10px auto
-  box-shadow: 3px 3px 0px #F0F8F7
   text-shadow: 0px 0px 0px #000000
   vertical-align: middle
   cursor: pointer
+  user-select: none
+  display: inline-block
+  border: 3px solid #CFD
+  margin: -2px
+  border-radius: 10px 0 0 10px
 
   &:hover
     background-color: hsl(222 ,67%,60%)
+
+.buttongroup
+  margin: 10px auto
+
+.deselect 
+  width: 150px
+  height: 35px
+  //background: linear-gradient(top, rgb(70, 214, 219), rgb(37, 146, 173))
+  background-color: hsl(182,67%,50%)
+  font-family: 'Lato'
+  color: white
+  font-weight: 600
+  letter-spacing: -1px
+  font-size: 20px
+  text-align: center  
+  padding: 10px 0px 0px
+  transition-duration: .3s
+  text-shadow: 0px 0px 0px #000000
+  vertical-align: middle
+  cursor: pointer
+  user-select: none
+  display: inline-block
+  border: 3px solid #CFD
+  margin: -2px
+  border-radius: 0 10px 10px 0
+
+  &.selected
+    background-color: hsl(222 ,67%,60%)
+  
+.deselect:hover
+  background-color: hsl(222 ,67%,60%)
 
 .twitterbutton
   width: 350px
@@ -278,8 +312,13 @@ body .icon-double-angle-right
   box-shadow: 3px 3px 0px #FFFFFF
   text-shadow: 0px 0px 0px #000000
   vertical-align: middle
+  user-select: none
+  display: inline-block
 
   &:hover
+    background-color: hsl(222 ,67%,60%)
+
+  &.selected
     background-color: hsl(222 ,67%,60%)
 
 .icon-twitter
