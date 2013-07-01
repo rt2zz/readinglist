@@ -1,20 +1,19 @@
 include head
 body
   include header
-  .bigwrap  
-    .content
-
-      a.next(href='#') Next
-      h1 Account
+  .content
+    a.next(href='#') Next
+    h1 Select or Select All
       each friend in friends
         .friend(tid=friend.id)
           img(src=friend.profile_image_url)
           h2= friend.name
           p= friend.followers_count
+          .icon.icon-ok-cirlce
       //pre= JSON.stringify(friends, null, 2)
 
 
       block head
         script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js').
         script(src='http://localhost:3001/bundle/setup.js').
-   
+     

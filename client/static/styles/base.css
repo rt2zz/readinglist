@@ -211,9 +211,18 @@ body .icon-double-angle-right {
 }
 
 .friend {
-  height: 100px;
-  border-bottom: 1px solid #ddd;
+  height: 75px;
+  border-bottom: 2px solid #ddd;
   cursor: pointer;
+  font-family: 'Lato';
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 100%;
+  vertical-align: top;
+  -ms-transition-duration: .3s;
+  -moz-transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
   -ms-user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -222,18 +231,41 @@ body .icon-double-angle-right {
 
 .friend h2 {
   display: inline-block;
+  font-family: 'Lato';
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 100%;
+  vertical-align: top;
+  margin: 15px 0;
 }
 
 .friend p {
   display: inline-block;
+  line-height: 0;
+  margin: 37px 10px;
+  color: #bbb;
 }
 
 .friend img {
   display: inline-block;
+  padding: 3px;
+  margin: 8px 10px;
+  height: 50px;
+  width: 50px;
+  border: 2px solid #ddd;
+}
+
+.friend .icon {
+  visibility: hidden;
+}
+
+.friend.selected .icon {
+  visibility: visible;
+  color: black;
 }
 
 .friend.selected {
-  background: #cfd;
+  background: hsl(140,100%,90%);
 }
 
 .content h1 {
@@ -246,9 +278,8 @@ body .icon-double-angle-right {
 
 .content h2 {
   font-size: 35px;
-  font-weight: 400;
   letter-spacing: 0px;
-  margin: 30px auto;
+  margin: 15px auto;
   line-height: 120%;
 }
 
@@ -261,7 +292,7 @@ body .icon-double-angle-right {
 .twitterbutton {
   width: 350px;
   height: 40px;
-  background-color: hsl(182,67%,40%);
+  background-color: hsl(182,67%,50%);
   font-family: 'Lato';
   color: white;
   font-weight: 600;
@@ -269,7 +300,7 @@ body .icon-double-angle-right {
   font-size: 28px;
   text-align: center;
   padding: 10px 0px;
-  margin: 200px auto;
+  margin: 100px auto;
   box-shadow: 3px 3px 0px #FFFFFF;
   text-shadow: 0px 0px 0px #000000;
   vertical-align: middle;
@@ -280,8 +311,7 @@ body .icon-double-angle-right {
 }
 
 .twitterbutton:hover {
-  background-color: hsl(182,67%,70%);
-  color: rgba(0, 0, 0, .3);
+  background-color: hsl(222 ,67%,60%);
 }
 
 .icon-twitter {
@@ -395,7 +425,6 @@ p.splashtitle {
 .icon.icon-hand-down {
   color: white;
   font-size: 300px;
-  position: relative;
   top: 100px;
   text-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
   margin-top: -100px;
