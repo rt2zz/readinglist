@@ -37,7 +37,7 @@ app.route("/account/:alias", require('./routes/account.js').public).nocache()
 function requireAuth(req, res, cb) {
   res.session.get('user', function(err, user){
     if(!user){
-      res.redirect('/login', 302)
+      res.redirect('/splash', 302)
     }
     else{
       cb()
