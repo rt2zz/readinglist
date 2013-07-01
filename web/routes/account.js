@@ -35,7 +35,7 @@ module.exports.setup = function(req, res){
     request({url: q, oauth:oauth}, function(e, r, body){
       var data = JSON.parse(body)
       var locals = {
-        friends: data.users
+        friends: data.users || []
       }
       res.render('setup.jade', locals)    
     })
