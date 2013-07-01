@@ -248,6 +248,8 @@ body .icon-double-angle-right {
   font-size: 62px;
   vertical-align: top;
   font-weight: 700;
+  font-size: 82px;
+  font-family: 'Helvetica Neue';
 }
 
 .friend img {
@@ -306,6 +308,7 @@ body .icon-double-angle-right {
   box-shadow: 3px 3px 0px #F0F8F7;
   text-shadow: 0px 0px 0px #000000;
   vertical-align: middle;
+  cursor: pointer;
   -ms-transition-duration: .3s;
   -moz-transition-duration: .3s;
   -webkit-transition-duration: .3s;

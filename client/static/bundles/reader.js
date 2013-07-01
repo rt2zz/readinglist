@@ -110,3 +110,4 @@ $("select#size").change(function() {
     $('.content').css("font-size", $(this).val() + "px");
 });
 })
+

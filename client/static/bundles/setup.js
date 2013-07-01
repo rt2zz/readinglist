@@ -47,3 +47,10 @@ $(document).ready(function(){
   })
 })
 
+$(document).ready(function() {
+  $(".selectbutton").click(function() {
+    $(".friend").toggleClass("selected");
+  })
+})
+
+
