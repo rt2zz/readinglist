@@ -46,8 +46,8 @@ module.exports.setup = function(req, res){
 module.exports.setupComplete = function(req, res){
   req.body(function(err, body){
     req.session.get('user', function(err, account){
-      console.log('ACCOUNT', account)
-      console.log('BODY', body)
+      // console.log('ACCOUNT', account)
+      // console.log('BODY', body)
       var follows = body.follows.split(',')
 
       var params = {
@@ -62,7 +62,7 @@ module.exports.setupComplete = function(req, res){
         body: params,
         json: true
       }
-      request.post('http://localhost:8001/twitter/setup', opts, function(e, r, body){
+      request.post('http://localhost:3003/twitter/setup', opts, function(e, r, body){
         console.log(body)
         res.end(body)
       })

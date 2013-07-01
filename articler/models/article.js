@@ -1,6 +1,9 @@
 var _ = require('lodash')
 var request = require('request')
 
+var Diffbot = require('diffbot').Diffbot
+var diffbot = new Diffbot('989ffc86ca31790cfc60fe9d4c028611');
+
 var db = require('../db/article.js')
 
 function Article (url){
@@ -11,8 +14,10 @@ function Article (url){
 
 Article.prototype.process = function (cb){
   var self = this
-  request(self.url, function(e, r, body){
-    self.data.body = body
+  console.log('process article')
+  diffbot.article({uri: self.url}, function(err, response) {
+    console.log(response);
+    self.data.parts = response
     self.save(function(err, data){
       if(err){
         cb(err)
@@ -21,7 +26,7 @@ Article.prototype.process = function (cb){
         cb(null, data)
       }
     })
-  })
+  });
 }
 
 Article.prototype.save = function(cb){
