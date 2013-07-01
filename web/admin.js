@@ -11,7 +11,7 @@ net.createServer(function (c) {
   c.pipe(multilevel.server(userdb)).pipe(c)
 }).listen(4000)
 
-spawn('levelweb', ['--client=4000', '--https=5000'], {cwd: 'tmp'})
+// spawn('levelweb', ['--client=4000', '--https=5000', '--server=5051'], {cwd: 'tmp'})
 
 
 // Cannot currently expose session db because levelweb -> multilevel assumes json keyEncoding.  
