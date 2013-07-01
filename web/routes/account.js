@@ -45,9 +45,8 @@ module.exports.setup = function(req, res){
 
 module.exports.setupComplete = function(req, res){
   req.body(function(err, body){
-    req.session.get('user', function(err, account){
-      // console.log('ACCOUNT', account)
-      // console.log('BODY', body)
+    req.user(function(err, account){
+      console.log('ACCOUNT', account)
       var follows = body.follows.split(',')
 
       var params = {
@@ -57,14 +56,20 @@ module.exports.setupComplete = function(req, res){
         },
         follows: follows
       }
+
+      var tfollows = follows.map(function(item){
+        return 't'+item
+      })
       
       var opts = {
         body: params,
         json: true
       }
       request.post('http://localhost:3003/twitter/setup', opts, function(e, r, body){
-        console.log(body)
-        res.end(body)
+        Account(account.uid).defaultList(tfollows).save('merge', function(err, account){
+          console.log(body)
+          res.redirect('/reader', 302)
+        })
       })
     })
 

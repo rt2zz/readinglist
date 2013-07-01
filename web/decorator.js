@@ -20,6 +20,12 @@ function decorate(req, res, cb){
   res.render = Templar(req, res, templarOptions)
 
   session(req, res, function(){
+    req.user = function(cb){
+      req.session.get('user', function(err, account){
+        account.uid = account.aliases[0]
+        cb(err, account)
+      })
+    }
     cb(req, res)
   })
 }

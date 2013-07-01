@@ -6,6 +6,7 @@ var async = require('async')
 function Account (id){
   this.id = id
   this.data = {}
+  this.data.lists = {}
   this.aliases = []
 }
 
@@ -14,17 +15,24 @@ Account.prototype.setData = function(data){
   return this
 }
 
+Account.prototype.defaultList = function(sources){
+  this.data.lists.default = {
+    sources: sources
+  }
+  return this
+}
+
 Account.prototype.save = function(type, cb){
   var self = this
   self.fetch(function(err, accountData){
     self.new = accountData ? false : true
-    if(accountData && type=='merge'){
-      self.data = _.merge(accountData, self.data)
-    }
     if(!accountData) self.aliases.push(self.id)
     self.setAliases(function(err){
       console.log(self.uid)
       console.log(self.data)
+      if(accountData && type=='merge'){
+        self.data = _.merge(accountData, self.data)
+      }
       db.put(self.uid, self.data, function(err){
         if(err){
           console.log('save err', err)
