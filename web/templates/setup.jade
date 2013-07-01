@@ -3,17 +3,20 @@ body
   include header
   .content
     a.next(href='#') Next
-    h1 Select or Select All
-      each friend in friends
-        .friend(tid=friend.id)
-          img(src=friend.profile_image_url)
-          h2= friend.name
-          p= friend.followers_count
-          .icon.icon-check
-      //pre= JSON.stringify(friends, null, 2)
+    .select Select Individually
+      .icon.icon-hand-up
+      |  or 
+      .selectbutton Select All
+    each friend in friends
+      .friend(tid=friend.id)
+        img(src=friend.profile_image_url)
+        h2= friend.name
+        p= friend.followers_count
+        .icon.icon-check
+    //pre= JSON.stringify(friends, null, 2)
 
 
-      block head
-        script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js').
-        script(src='http://localhost:3001/bundle/setup.js').
+    block head
+      script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js').
+      script(src='http://localhost:3001/bundle/setup.js').
      
