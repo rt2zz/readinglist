@@ -18,6 +18,11 @@ Seed.prototype.setTweet = function(tweet){
   return this
 }
 
+Seed.prototype.source = function(source){
+  this.data.source = source
+  return this
+}
+
 Seed.prototype.process = function(cb){
   var self = this
   var matches = mediaExtractor(self.text)
@@ -27,7 +32,7 @@ Seed.prototype.process = function(cb){
   else{
     var trys = matches.map(function(url){
       return function(acb){
-        Article(url).process(function(err, data){
+        Article(url).source(self.data.source).process(function(err, data){
           // console.log('self.data', self.data)
           self.data.articles.push(url)
           console.log('after processing article:', err, data)

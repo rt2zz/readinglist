@@ -8,7 +8,10 @@ var db = require('../db/article.js')
 
 function Source (id, service){
   var prefix = ''
-  if(service == 'twitter') prefix = 'source~twitter~'
+  if(service == 'twitter'){
+    prefix = 'source~twitter~'
+    id = 't' + id
+  }
   this.id = id
   this.uid = prefix+id
   this.data = {}
@@ -37,21 +40,23 @@ Source.prototype.process = function(cb){
     }
     if(data && data.lastTweet) params.since_id = data.lastTweet
     else params.count = 10
-    // params.count = 10
-    params.user_id = self.id
+    params.count = 10
+    // params.user_id = self.id
 
     twit.getUserTimeline(params, function(err, tweets){
       console.log('Get user timeline err:', err)
       // console.dir(tweets)
-      self.lastTweet(tweets[0].id)
-      if(!data) self.firstTweet = tweets[tweets.length-1].id
+      if(tweets.length > 0){
+        self.lastTweet(tweets[0].id)
+        if(!data) self.firstTweet = tweets[tweets.length-1].id
+      }
       self.save(function(err, source){
         console.log('tweets', tweets)
         // console.log('Source after save', source)
         var trys = tweets.map(function(tweet){
           console.log('runing map on tweets')
           return function(cb){
-            Seed(tweet.id, 'tweet').setTweet(tweet).process(function(err, data){
+            Seed(tweet.id, 'tweet').source(self.id).setTweet(tweet).process(function(err, data){
               if(err){
                 console.log('ERR extracting ', err)
                 cb(err)
