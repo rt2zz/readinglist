@@ -24,18 +24,19 @@ module.exports.public = function(req, res){
 }
 
 module.exports.setup = function(req, res){
-  var q = 'https://api.twitter.com/1.1/friends/list.json'
   req.session.get('user', function(err, account){
-    var oauth = 
-        { consumer_key: 'J2XcZYlBFU0hjrt4ooYqWg'
-        , consumer_secret: 'vbh21yfR9VbI80BapiswGi6IsfuAYwUYPIOwjjQqvM'
-        , token: account.twitter.oauth_token
-        , token_secret: account.twitter.oauth_token_secret
-        }
-    request({url: q, oauth:oauth}, function(e, r, body){
-      var data = JSON.parse(body)
+    var twit = new twitter({
+      consumer_key: 'J2XcZYlBFU0hjrt4ooYqWg',
+      consumer_secret: 'vbh21yfR9VbI80BapiswGi6IsfuAYwUYPIOwjjQqvM',
+      access_token_key: account.twitter.oauth_token,
+      access_token_secret: account.twitter.oauth_token_secret
+    });
+    console.log(account.twitter.user_id)
+    twit.getFriends(parseInt(account.twitter.user_id), function(e, data){
+      console.log('tdat', data[0])
+      console.log(data.length)
       var locals = {
-        friends: data.users || []
+        friends: data || []
       }
       res.render('setup.jade', locals)    
     })
