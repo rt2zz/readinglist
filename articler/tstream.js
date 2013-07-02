@@ -7,22 +7,15 @@ tstream.process = function(ids, oauth, cb){
   var trys = ids.map(function(id){
     return function(rcb){
       Source(id, 'twitter').oauth(oauth).process(function(err, data){
-        // console.log('data from processing source:', data)
-        rcb(data)
+        rcb(null, data)
       })
     }
   })
 
   async.parallel(trys, function(results){
-    // console.log('results: ', results)
-    cb(results)
+    console.log('returning in tstream')
+    cb(null, results)
   })
-  //try to find user
-  //if new -> add user -> get default
-  //if exists -> get last and request from there
-  //save tweets to db, update follow
-  //handle article processing elsewhere
-  //return object by key with processing details
 }
 
 

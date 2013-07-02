@@ -38,20 +38,16 @@ function helloWorld (){
 
 function twitterSetup(){
   var self = this
-  console.log('body', this.req.body)
   tStream.process(this.req.body.follows, this.req.body.oauth, function(err, data){
-    // console.log('Final:', err, data)
-    self.res.end('donezos')
+    console.log('returning')
+    self.res.json(data)
   })
 }
 
 function listArticles(){
   var self = this
-  console.log('list articles')
-  console.log('thisresjson', this.res.json)
   var sources = this.req.body.sources
   Articles(sources).list(function(err, articles){
-    // console.log('articles: ', articles)
     self.res.json({articles: articles})
   })
 }

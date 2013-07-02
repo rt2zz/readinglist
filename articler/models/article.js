@@ -21,16 +21,23 @@ Article.prototype.process = function (cb){
   var self = this
   console.log('process article')
   diffbot.article({uri: self.url}, function(err, response) {
-    // console.log(response);
-    self.data.parts = response
-    self.save(function(err, data){
-      if(err){
-        cb(err)
-      }
-      else{
-        cb(null, data)
-      }
-    })
+    console.log('diffbot responded');
+    if(response.text && response.text.length > 200){
+      self.data.parts = response
+      self.data.date = new Date().getTime()
+      self.save(function(err, data){
+        if(err){
+          cb(err)
+        }
+        else{
+          cb(null, data)
+        }
+      })
+    }
+    else{
+      console.log('txt not long enough or did not exist')
+      cb('bad article')
+    }
   });
 }
 
@@ -40,7 +47,6 @@ Article.prototype.save = function(cb){
   else{
     db.get(self.uid, function(err, data){
       if(data) self.data = _.merge(data, self.data)
-      console.log('Article DATA', self.data)
       db.put(self.uid, self.data)
       cb(null, self.data)
     })

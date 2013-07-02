@@ -106,7 +106,16 @@ $(document).ready(function() {
 })
 $(document).ready(function() {
 
-$("select#size").change(function() {
-    $('.content').css("font-size", $(this).val() + "px");
-});
+  $("select#size").change(function() {
+      $('.content').css("font-size", $(this).val() + "px");
+  });
+})
+
+$(document).ready(function(){
+  $('.item').click(function(){
+    var i = $(this).attr('index')
+    $('h1.title').text(articles[i].parts.title)
+    $('.articleBody').text(articles[i].parts.text)
+    $('pre.articleJson').text(JSON.stringify(articles[i], null, 2))
+  })
 })

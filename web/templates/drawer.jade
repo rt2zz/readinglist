@@ -4,8 +4,10 @@
   .drawer
     .icon.icon-double-angle-left
     #right
-      for article in articles
-        .item
-          p.title= article.parts.title
-          p.date Item add date
-          p.description= article.parts.text.substring(0, 256) 
+      if(articles)
+        for article, i in articles
+          .item(index=i)
+            p.title= article.parts.title
+            p.date= new Date(article.date).toString('yyyy-MM-dd')
+            if(article.parts.text) 
+              p.description= article.parts.text.substring(0, 128) 

@@ -25,38 +25,58 @@ Seed.prototype.source = function(source){
 
 Seed.prototype.process = function(cb){
   var self = this
-  var matches = mediaExtractor(self.text)
-  console.log(self.text)
-  console.log('matches:', matches)
-  if(matches.length==0) cb('no matches for tweet '+self.data.tweet.id)
-  else{
-    var trys = matches.map(function(url){
-      return function(acb){
-        Article(url).source(self.data.source).process(function(err, data){
-          // console.log('self.data', self.data)
-          self.data.articles.push(url)
-          console.log('after processing article:', err, data)
-          acb(null, url)
-        })
+  this.exists(function(exists){
+    // console.log('checked if exitsts:', exists)
+    if(exists){
+      console.log('seed err: seed exists')
+      cb(null, 'seed already exists, no processing necessary')
+    }
+    else{
+      var matches = mediaExtractor(self.text)
+      if(matches.length==0){
+        console.log('seed err: no matches!!')
+        cb(null, 'no matches for tweet '+self.data.tweet.id)
       }
-    })
-    async.parallel(trys, function(err, results){
-      // console.log('results after all matches article processing', results)
-      if(err){cb(err)}
       else{
-        self.save(function(err, data){
-          cb(null, data)
+        var trys = matches.map(function(url){
+          return function(acb){
+            Article(url).source(self.data.source).process(function(err, data){
+              console.log('article process cb')
+              // console.log('self.data', self.data)
+              self.data.articles.push(url)
+              acb(null, url)
+            })
+          }
+        })
+        async.parallel(trys, function(err, results){
+          console.log('seed process async parralel')
+          // console.log('results after all matches article processing', results)
+          if(err){
+            console.log('seed process trys cb err')
+            cb(null, err)
+          }
+          else{
+            self.save(function(err, data){
+              cb(null, data)
+            })
+          }
         })
       }
-    })
-  }
+    }
+  })
+}
+
+Seed.prototype.exists = function(cb){
+  db.get(this.id, function(err, data){
+    if(data) cb(true)
+    else cb(false)
+  })
 }
 
 Seed.prototype.save = function(cb){
   var self = this
   db.get(self.id, function(err, data){
     if(data) self.data = _.merge(data, self.data)
-    // console.log('Seed DATA', self.data)
     db.put(self.id, self.data)
     cb(null, self.data)
   })
@@ -64,7 +84,6 @@ Seed.prototype.save = function(cb){
 
 function mediaExtractor(text){
   var regex = new RegExp('https?:\/\/[a-zA-Z0-9\.\/]*', 'g')
-  console.log('testing:', text)
   // console.log(regex.exec(tweet.text))
   // console.log(regex.exec('http://google.com'))
   var matches = []

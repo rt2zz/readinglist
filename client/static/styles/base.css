@@ -564,6 +564,11 @@ p.author {
   border-bottom: 1px solid hsl(202,81%,40%);
 }
 
+pre {
+  background: #eee;
+  border: #ddd;
+}
+
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
   .background {
     background-image: url("/asset/images/geometry12@2x.jpg");

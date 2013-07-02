@@ -17,7 +17,6 @@ Articles.prototype.list = function(cb){
       start: iden
     })
     .on('data', function (data) {
-      console.log('KEY', data.key)
       if(data.key.indexOf(iden) != 0){
         console.log('iden not 0')
         this.destroy()

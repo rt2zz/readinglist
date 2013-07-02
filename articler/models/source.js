@@ -10,11 +10,13 @@ function Source (id, service){
   var prefix = ''
   if(service == 'twitter'){
     prefix = 'source~twitter~'
-    id = 't' + id
+    tid = 't' + id
   }
-  this.id = id
-  this.uid = prefix+id
-  this.data = {}
+  this.id = tid
+  this.uid = prefix+tid
+  this.data = {
+    twitterId: id
+  }
 }
 
 Source.prototype.oauth = function(oauth){
@@ -38,40 +40,38 @@ Source.prototype.process = function(cb){
       trim_user: true,
       exclue_replies: true
     }
-    if(data && data.lastTweet) params.since_id = data.lastTweet
-    else params.count = 10
+    // if(data && data.lastTweet) params.since_id = data.lastTweet
+    // else params.count = 10
     params.count = 10
-    // params.user_id = self.id
+    params.user_id = self.data.twitterId
+    console.log('t params', params)
 
     twit.getUserTimeline(params, function(err, tweets){
-      console.log('Get user timeline err:', err)
-      // console.dir(tweets)
       if(tweets.length > 0){
         self.lastTweet(tweets[0].id)
         if(!data) self.firstTweet = tweets[tweets.length-1].id
       }
       self.save(function(err, source){
-        console.log('tweets', tweets)
-        // console.log('Source after save', source)
+        console.log('source save cb')
         var trys = tweets.map(function(tweet){
-          console.log('runing map on tweets')
-          return function(cb){
+          return function(acb){
             Seed(tweet.id, 'tweet').source(self.id).setTweet(tweet).process(function(err, data){
+              console.log('seed callback')
               if(err){
-                console.log('ERR extracting ', err)
-                cb(err)
+                acb(err)
               }
               else{
-                // console.log('Data after processing seed', data) 
-                cb(null, data)
+                acb(null, data)
               }
             })
           }
         })
-        console.log('source trys', trys)
+        console.log('trys length', trys.length)
         async.parallel(trys, function(err, results){
-          // console.log('seed parallel results', err, results)
-          cb(null, results)
+          console.log('async err', err)
+          console.log('source async parallel')
+          console.log('source reults', results)
+          cb(null, 'results')
         })  
       })
     })
@@ -85,11 +85,8 @@ Source.prototype.lastTweet = function(tid){
 
 Source.prototype.save = function(cb){
   var self = this
-  console.log('source obj', self)
   db.get(self.uid, function(err, data){
-    // console.log('source self.data', self.data)
     if(data) self.data = _.merge(data, self.data)
-    // console.log('DATA', self.data)
     db.put(self.uid, self.data)
     cb(null, self.data)
   })
