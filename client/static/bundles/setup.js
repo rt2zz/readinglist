@@ -47,3 +47,15 @@ $(document).ready(function(){
   })
 })
 
+$(document).ready(function() {
+  $(".selectbutton").click(function() {
+    $(".friend").addClass('selected');
+  })
+})
+$(document).ready(function() {
+  $(".deselect").click(function() {
+    $(".friend").removeClass('selected');
+  })
+})
+
+

@@ -76,7 +76,6 @@ body.down
   margin-top:0
 
 .content
-  width: 40%
   margin: 0 10%
   letter-spacing: 0px
   font-size: 14px
@@ -169,8 +168,8 @@ body .icon-double-angle-right
   overflow-x: hidden
 
 .friend
-  height:75px
-  border-bottom: 2px solid #ddd
+  height:50px
+  border-bottom: 1px solid #ddd
   user-select: none
   cursor: pointer
   font-family: 'Lato'
@@ -179,30 +178,34 @@ body .icon-double-angle-right
   line-height: 100%
   vertical-align: top
   transition-duration: .3s
+  overflow: hidden    
 
   h2 
     display:inline-block
-    font-family: 'Lato'
+    font-family: 'Roboto'
     font-weight: 300
-    font-size: 30px
+    font-size: 16px
     line-height: 100%
     vertical-align: top
-    margin: 15px 0
+    margin: 15px 15px
+    color: #789
 
   p
     display:inline-block
     line-height: 0
-    margin: 37px 10px
-    color: #bbb
-
+    margin: 23px 10px
+    color: #F0F8F7
+    font-size: 62px
+    vertical-align: top
+    font-weight: 700
+    font-size: 82px
+    font-family: 'Helvetica Neue'
   
   img
     display:inline-block
-    padding: 3px
-    margin: 8px 10px
-    height: 50px
-    width: 50px
-    border: 2px solid #ddd
+    height: 40px
+    width: 40px
+    margin-top: 5px
 
   .icon
     visibility: hidden
@@ -212,7 +215,10 @@ body .icon-double-angle-right
 
     .icon
       visibility: visible
-      color: black
+      color: #F0F8F7
+      font-size: 56px
+      float: right
+
 
     
 .content
@@ -225,15 +231,69 @@ body .icon-double-angle-right
     line-height: 120%
 
   h2
-    font-size: 35px
     letter-spacing: 0px
-    margin: 15px auto
     line-height: 120%
 
   h3
     font-size: 25px
     font-weight: 400
     letter-spacing: 0px
+
+.selectbutton
+  width: 150px
+  height: 35px
+  //background: linear-gradient(top, rgb(70, 214, 219), rgb(37, 146, 173))
+  background-color: hsl(182,67%,50%)
+  font-family: 'Lato'
+  color: white
+  font-weight: 600
+  letter-spacing: -1px
+  font-size: 20px
+  text-align: center  
+  padding: 10px 0px 0px
+  transition-duration: .3s
+  text-shadow: 0px 0px 0px #000000
+  vertical-align: middle
+  cursor: pointer
+  user-select: none
+  display: inline-block
+  border: 3px solid #CFD
+  margin: -2px
+  border-radius: 10px 0 0 10px
+
+  &:hover
+    background-color: hsl(222 ,67%,60%)
+
+.buttongroup
+  margin: 10px auto
+
+.deselect 
+  width: 150px
+  height: 35px
+  //background: linear-gradient(top, rgb(70, 214, 219), rgb(37, 146, 173))
+  background-color: hsl(182,67%,50%)
+  font-family: 'Lato'
+  color: white
+  font-weight: 600
+  letter-spacing: -1px
+  font-size: 20px
+  text-align: center  
+  padding: 10px 0px 0px
+  transition-duration: .3s
+  text-shadow: 0px 0px 0px #000000
+  vertical-align: middle
+  cursor: pointer
+  user-select: none
+  display: inline-block
+  border: 3px solid #CFD
+  margin: -2px
+  border-radius: 0 10px 10px 0
+
+  &.selected
+    background-color: hsl(222 ,67%,60%)
+  
+.deselect:hover
+  background-color: hsl(222 ,67%,60%)
 
 .twitterbutton
   width: 350px
@@ -252,8 +312,13 @@ body .icon-double-angle-right
   box-shadow: 3px 3px 0px #FFFFFF
   text-shadow: 0px 0px 0px #000000
   vertical-align: middle
+  user-select: none
+  display: inline-block
 
   &:hover
+    background-color: hsl(222 ,67%,60%)
+
+  &.selected
     background-color: hsl(222 ,67%,60%)
 
 .icon-twitter
@@ -465,5 +530,30 @@ p.author
 pre
   background:#eee
   border:#ddd
+
+.next
+  width: 350px
+  height: 40px
+  //background: linear-gradient(top, rgb(70, 214, 219), rgb(37, 146, 173))
+  background-color: hsl(182,67%,50%)
+  font-family: 'Lato'
+  color: white
+  font-weight: 600
+  letter-spacing: -1px
+  font-size: 28px
+  text-align: center  
+  padding: 10px 0px
+  transition-duration: .3s
+  margin: 100px auto
+  box-shadow: 3px 3px 0px #FFFFFF
+  text-shadow: 0px 0px 0px #000000
+  vertical-align: middle
+
+.select
+  font-size: 40px
+  font-weight: 700
+  color: #20B2AA
+  margin: 40px auto
+  text-align: center
 
 

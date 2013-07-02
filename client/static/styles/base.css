@@ -99,7 +99,6 @@ body.down {
 }
 
 .content {
-  width: 40%;
   margin: 0 10%;
   letter-spacing: 0px;
   font-size: 14px;
@@ -211,14 +210,15 @@ body .icon-double-angle-right {
 }
 
 .friend {
-  height: 75px;
-  border-bottom: 2px solid #ddd;
+  height: 50px;
+  border-bottom: 1px solid #ddd;
   cursor: pointer;
   font-family: 'Lato';
   font-weight: 300;
   font-size: 30px;
   line-height: 100%;
   vertical-align: top;
+  overflow: hidden;
   -ms-transition-duration: .3s;
   -moz-transition-duration: .3s;
   -webkit-transition-duration: .3s;
@@ -231,28 +231,32 @@ body .icon-double-angle-right {
 
 .friend h2 {
   display: inline-block;
-  font-family: 'Lato';
+  font-family: 'Roboto';
   font-weight: 300;
-  font-size: 30px;
+  font-size: 16px;
   line-height: 100%;
   vertical-align: top;
-  margin: 15px 0;
+  margin: 15px 15px;
+  color: #789;
 }
 
 .friend p {
   display: inline-block;
   line-height: 0;
-  margin: 37px 10px;
-  color: #bbb;
+  margin: 23px 10px;
+  color: #F0F8F7;
+  font-size: 62px;
+  vertical-align: top;
+  font-weight: 700;
+  font-size: 82px;
+  font-family: 'Helvetica Neue';
 }
 
 .friend img {
   display: inline-block;
-  padding: 3px;
-  margin: 8px 10px;
-  height: 50px;
-  width: 50px;
-  border: 2px solid #ddd;
+  height: 40px;
+  width: 40px;
+  margin-top: 5px;
 }
 
 .friend .icon {
@@ -261,7 +265,9 @@ body .icon-double-angle-right {
 
 .friend.selected .icon {
   visibility: visible;
-  color: black;
+  color: #F0F8F7;
+  font-size: 56px;
+  float: right;
 }
 
 .friend.selected {
@@ -277,9 +283,7 @@ body .icon-double-angle-right {
 }
 
 .content h2 {
-  font-size: 35px;
   letter-spacing: 0px;
-  margin: 15px auto;
   line-height: 120%;
 }
 
@@ -287,6 +291,78 @@ body .icon-double-angle-right {
   font-size: 25px;
   font-weight: 400;
   letter-spacing: 0px;
+}
+
+.selectbutton {
+  width: 150px;
+  height: 35px;
+  background-color: hsl(182,67%,50%);
+  font-family: 'Lato';
+  color: white;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 0px 0px;
+  text-shadow: 0px 0px 0px #000000;
+  vertical-align: middle;
+  cursor: pointer;
+  display: inline-block;
+  border: 3px solid #CFD;
+  margin: -2px;
+  border-radius: 10px 0 0 10px;
+  -ms-transition-duration: .3s;
+  -moz-transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.selectbutton:hover {
+  background-color: hsl(222 ,67%,60%);
+}
+
+.buttongroup {
+  margin: 10px auto;
+}
+
+.deselect {
+  width: 150px;
+  height: 35px;
+  background-color: hsl(182,67%,50%);
+  font-family: 'Lato';
+  color: white;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 0px 0px;
+  text-shadow: 0px 0px 0px #000000;
+  vertical-align: middle;
+  cursor: pointer;
+  display: inline-block;
+  border: 3px solid #CFD;
+  margin: -2px;
+  border-radius: 0 10px 10px 0;
+  -ms-transition-duration: .3s;
+  -moz-transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.deselect .selected {
+  background-color: hsl(222 ,67%,60%);
+}
+
+.deselect:hover {
+  background-color: hsl(222 ,67%,60%);
 }
 
 .twitterbutton {
@@ -304,13 +380,22 @@ body .icon-double-angle-right {
   box-shadow: 3px 3px 0px #FFFFFF;
   text-shadow: 0px 0px 0px #000000;
   vertical-align: middle;
+  display: inline-block;
   -ms-transition-duration: .3s;
   -moz-transition-duration: .3s;
   -webkit-transition-duration: .3s;
   transition-duration: .3s;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .twitterbutton:hover {
+  background-color: hsl(222 ,67%,60%);
+}
+
+.twitterbutton.selected {
   background-color: hsl(222 ,67%,60%);
 }
 
@@ -567,6 +652,35 @@ p.author {
 pre {
   background: #eee;
   border: #ddd;
+}
+
+.next {
+  width: 350px;
+  height: 40px;
+  background-color: hsl(182,67%,50%);
+  font-family: 'Lato';
+  color: white;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 28px;
+  text-align: center;
+  padding: 10px 0px;
+  margin: 100px auto;
+  box-shadow: 3px 3px 0px #FFFFFF;
+  text-shadow: 0px 0px 0px #000000;
+  vertical-align: middle;
+  -ms-transition-duration: .3s;
+  -moz-transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+}
+
+.select {
+  font-size: 40px;
+  font-weight: 700;
+  color: #20B2AA;
+  margin: 40px auto;
+  text-align: center;
 }
 
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
