@@ -89,20 +89,20 @@ $(document).ready(function() {
 
 })
 $(document).ready(function() {
-  $('select#fonts').fontSelector({
-    options: {
-      inSpeed: 250,
-      outSpeed: "slow"
-    },
+  // $('select#fonts').fontSelector({
+  //   options: {
+  //     inSpeed: 250,
+  //     outSpeed: "slow"
+  //   },
     
-    fontChange: function(e, ui) {
-      $(".content").css({"font-family":ui.font})
-    console.log(ui.font)
-    },
-    styleChange: function(e, ui) {
+  //   fontChange: function(e, ui) {
+  //     $(".content").css({"font-family":ui.font})
+  //   console.log(ui.font)
+  //   },
+  //   styleChange: function(e, ui) {
 
-    }
-  });
+  //   }
+  // });
 })
 $(document).ready(function() {
 

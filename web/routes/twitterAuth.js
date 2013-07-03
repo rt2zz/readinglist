@@ -35,7 +35,7 @@ module.exports.accessToken = function(req, res){
     var data = qs.parse(body)
     Account('twitter:'+data.screen_name).preferredAlias(data.screen_name).setData({twitter: data}).save('merge', function(err, account){
       req.session.set('user', account, function(err){
-        if(account.wizard == 1) res.redirect('/reader')
+        if(account.setup) res.redirect('/reader')
         else res.redirect('/setup')
       })
     })

@@ -15,6 +15,11 @@ Account.prototype.setData = function(data){
   return this
 }
 
+Account.prototype.setupComplete = function(state){
+  if(typeof state != 'undefined') this.data.setup = state
+  return this
+}
+
 Account.prototype.defaultList = function(sources){
   this.data.lists.default = {
     sources: sources
@@ -28,8 +33,6 @@ Account.prototype.save = function(type, cb){
     self.new = accountData ? false : true
     if(!accountData) self.aliases.push(self.id)
     self.setAliases(function(err){
-      console.log(self.uid)
-      console.log(self.data)
       if(accountData && type=='merge'){
         self.data = _.merge(accountData, self.data)
       }
@@ -55,10 +58,7 @@ Account.prototype.setAliases = function(cb){
       })
     }
   })
-  console.log('alises ', self.aliases)
   async.parallel(trys, function(err, results){
-    console.log('async err', err)
-    console.log('results', results)
     cb(null)
   })
 }
@@ -66,12 +66,9 @@ Account.prototype.setAliases = function(cb){
 Account.prototype.setAlias = function(alias, cb){
   var self = this
   db.get('alias/'+alias, function(err, uid){
-    console.log('alias get error', err)
     if(!uid){
-      console.log('going t save', self.uid)
       db.put('alias/'+alias, self.uid, function(err){
         if(err){
-          console.log('ERR Saving Alias', err)
           cb(err)
         }
         else{
@@ -83,11 +80,9 @@ Account.prototype.setAlias = function(alias, cb){
       })
     }
     else if(uid == self.uid){
-      console.log('alias already exists')
       cb(null, true)
     }
     else{
-      console.log('fail: alias already taken')
       cb(null, false)
     }
   })
@@ -131,8 +126,6 @@ Account.prototype.pocketAuth = function(accessToken){
 Account.prototype.follow = function(service, follows){
   this.data.follows = this.data.follows || {}
   this.data.follows[service] = follows
-  console.log(this.data.follows)
-  console.log(this.id)
   return this
 }
 

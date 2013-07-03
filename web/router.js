@@ -18,11 +18,11 @@ watch.createMonitor('./templates', function (monitor) {
 app.route("/login", require('./routes/login.js').login).condition(requireAnon).nocache()
 app.route("/logout", require('./routes/login.js').logout).nocache()
 
-app.route("/reader", require('./routes/reader.js')).nocache()
+app.route("/reader", require('./routes/reader.js')).condition(requireAuth).nocache()
 
 app.route("/twitter", require('./routes/twitterAuth.js').requestToken).nocache()
 app.route("/twitter/access", require('./routes/twitterAuth.js').accessToken).nocache()
-app.route("/splash", function(req, res){
+app.route("/", function(req, res){
     res.render('splash.jade')
   }).nocache()
 
@@ -37,7 +37,7 @@ app.route("/account/:alias", require('./routes/account.js').public).nocache()
 function requireAuth(req, res, cb) {
   res.session.get('user', function(err, user){
     if(!user){
-      res.redirect('/splash', 302)
+      res.redirect('/', 302)
     }
     else{
       cb()

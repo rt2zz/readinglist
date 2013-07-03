@@ -6,7 +6,6 @@ var async = require('async')
 var twitter = require('ntwitter');
 
 module.exports.user = function(req, res){
-  console.log('Account Page')
   req.session.get('user', function(err, account){
     Account(account.aliases[0]).fetch(function(err, account){
       req.session.set('user', account)
@@ -31,10 +30,7 @@ module.exports.setup = function(req, res){
       access_token_key: account.twitter.oauth_token,
       access_token_secret: account.twitter.oauth_token_secret
     });
-    console.log(account.twitter.user_id)
     twit.getFriends(parseInt(account.twitter.user_id), function(e, data){
-      console.log('tdat', data[0])
-      console.log(data.length)
       var locals = {
         friends: data || []
       }
@@ -47,7 +43,6 @@ module.exports.setup = function(req, res){
 module.exports.setupComplete = function(req, res){
   req.body(function(err, body){
     req.user(function(err, account){
-      console.log('ACCOUNT', account)
       var follows = body.follows.split(',')
 
       var params = {
@@ -67,8 +62,7 @@ module.exports.setupComplete = function(req, res){
         json: true
       }
       request.post('http://localhost:3003/twitter/setup', opts, function(e, r, body){
-        Account(account.uid).defaultList(tfollows).save('merge', function(err, account){
-          console.log(body)
+        Account(account.uid).setupComplete(true).defaultList(tfollows).save('merge', function(err, account){
           res.redirect('/reader', 302)
         })
       })

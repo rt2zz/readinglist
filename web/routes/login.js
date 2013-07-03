@@ -1,5 +1,4 @@
 var Account = require('../models/account.js')
-console.log(Account)
 
 module.exports.login = function(req, res){
   res.render('login.jade')
@@ -9,13 +8,11 @@ module.exports.login = function(req, res){
 module.exports.logout = function(req, res){
   req.session.del('user', function(err){
     res.redirect('/')
-
   })
 }
 
 module.exports.authRequest = function(req, res){
   req.body(function(err, body){
-    console.log('BODY', body)
     Account().authenticate('picket:'+body.username, body.pass, function(err, account){
       console.log('err auth req', err)
       if(err || !account){
