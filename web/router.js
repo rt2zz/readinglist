@@ -15,10 +15,20 @@ watch.createMonitor('./templates', function (monitor) {
   })
 })
 
+var render = function(template){
+  return function(req, res){
+    res.render(template)
+  }
+}
+
 app.route("/login", require('./routes/login.js').login).condition(requireAnon).nocache()
 app.route("/logout", require('./routes/login.js').logout).nocache()
 
 app.route("/reader", require('./routes/reader.js')).condition(requireAuth).nocache()
+app.route("/t/reader/main", render('reader/main.jade'))..nocache()
+app.route("/t/reader/nav", render('reader/nav.jade'))..nocache()
+app.route("/d/list/:list", require('./routes/reader.js').list)..nocache()
+
 
 app.route("/twitter", require('./routes/twitterAuth.js').requestToken).nocache()
 app.route("/twitter/access", require('./routes/twitterAuth.js').accessToken).nocache()
