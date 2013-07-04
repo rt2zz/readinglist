@@ -6,7 +6,7 @@
     #right
       if(articles)
         for article, i in articles
-          .item(index=i)
+          .item(index="{{@index}}"")
             p.title= article.parts.title
             p.date= new Date(article.date).toString('yyyy-MM-dd')
             if(article.parts.text) 

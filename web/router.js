@@ -25,8 +25,11 @@ app.route("/login", require('./routes/login.js').login).condition(requireAnon).n
 app.route("/logout", require('./routes/login.js').logout).nocache()
 
 app.route("/reader", require('./routes/reader.js')).condition(requireAuth).nocache()
+app.route("/reader/*", require('./routes/reader.js')).condition(requireAuth).nocache()
+
 app.route("/t/reader/main", render('reader/main.jade')).nocache()
-app.route("/t/reader/nav", render('reader/nav.jade')).nocache()
+app.route("/t/reader/list", render('reader/list.jade')).nocache()
+app.route('/t/reader/account', require('./routes/reader.account.js')).nocache()
 app.route("/d/list/:list", require('./routes/reader.js').list).nocache()
 
 

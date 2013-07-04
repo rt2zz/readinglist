@@ -1,0 +1,9 @@
+.drawerwrapper
+  #right
+    | {{#each articles}}
+    .item(index="{{@index}}")
+      p.title {{this.parts.title}}
+      p.date {{date this.date}}     
+      p.description {{summary this.parts.text}}
+    | {{/each}}	
+

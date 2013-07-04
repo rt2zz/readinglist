@@ -99,7 +99,7 @@ body.down {
 }
 
 .content {
-  margin: 0 10%;
+  margin: 0 400px 0 0;
   letter-spacing: 0px;
   font-size: 14px;
   font-family: 'Roboto';
@@ -108,9 +108,14 @@ body.down {
   padding-top: 40px;
 }
 
+.content .inner {
+  margin: 0 20%;
+}
+
 .topnav.fixed {
   position: fixed;
   top: 0;
+  left: 0;
 }
 
 .drawer {
@@ -123,7 +128,7 @@ body.down {
   right: 0;
   top: 0;
   z-index: 100;
-  width: 100px;
+  width: 400px;
   background-color: #E1E1E1;
   -ms-transition-duration: .3s;
   -moz-transition-duration: .3s;
@@ -131,12 +136,7 @@ body.down {
   transition-duration: .3s;
 }
 
-.drawerwrapper.closed:hover {
-  background-color: rgba(255, 255, 255, 1);
-  cursor: pointer;
-}
-
-.drawerwrapper.closed:hover .border {
+.drawerwrapper .border {
   background-color: rgba(0, 0, 0, .30);
 }
 
@@ -179,9 +179,8 @@ body .icon-double-angle-right {
 }
 
 .item {
-  height: 80px;
-  border-bottom: 2px dashed black;
-  line-height: 2px;
+  border-bottom: 1px solid #aaa;
+  line-height: 1.2em;
   padding: 0 5px;
   width: 366px;
 }
@@ -649,9 +648,10 @@ p.author {
   border-bottom: 1px solid hsl(202,81%,40%);
 }
 
-pre {
+pre.debug {
   background: #eee;
   border: #ddd;
+  padding: 15px;
 }
 
 .next {

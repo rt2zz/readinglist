@@ -3,9 +3,12 @@ $(document).ready(function(){
   var last=$(document).scrollTop()
   var offset=last
 
-  var $enav = $('.topnav')
-  var margin = $enav.outerHeight()
-  var dur = 150
+  var lastPost = 0
+
+  $('.content').waypoint(function(dir){
+    if(dir == 'down') hideNav()
+    else showNav() 
+  })
 
   setInterval(function(){
     last=offset
@@ -14,25 +17,11 @@ $(document).ready(function(){
     
     //show
     if(delta<-120){
-      if(!$enav.hasClass('fixed')){
-        $(".brand").css({'left': '-100%'}).animate({"left":"0px"}, dur)
-        $enav.addClass("fixed").css({'margin-top': '-'+margin+'px'}).animate({'margin-top':0}, dur)
-        //hide().slideDown({duration:100, easing:'linear'})
-        $("body").animate({"margin-top":margin+'px'}, dur)
-
-      }
+      showNav()
     }
     //hide
     if(delta>120){
-      if($enav.hasClass('fixed')){
-        $(".brand").animate({"left":"-100%"}, dur)
-        $enav.animate({'margin-top':'-'+margin+'px'}, dur, function(){
-          $enav.removeClass('fixed').css({'margin-top':0})
-
-        })
-        $("body").animate({"margin-top":"0px"}, dur)
-
-      }
+      hideNav()
     }
   },100)
 })
@@ -61,6 +50,26 @@ $(document).ready(function(){
   })
 })
 
+function showNav(){
+  var dur = 150
+  var $enav = $('.topnav')
+  var margin = $enav.outerHeight()
+
+  $(".brand").animate({"left":"0px"}, dur)
+  $enav.animate({'margin-top':0}, dur)
+  $("body").animate({"margin-top":'0px'}, dur)
+}
+
+function hideNav(){
+  var dur = 150
+  var $enav = $('.topnav')
+  var margin = $enav.outerHeight()
+
+  $(".brand").animate({"left":"-100%"}, dur)
+  $enav.animate({'margin-top':'-'+margin+'px'}, dur)
+  $("body").animate({"margin-top":'-'+margin+'px'}, dur)
+}
+
 function scroller(){
     
   var rightHeight = $('#right').height()
@@ -77,7 +86,7 @@ function scroller(){
 }
 
 $(document).ready(function() {
-        $("body").css("margin-left", "100%").animate({"margin-left": 0})
+        // $("body").css("margin-left", "100%").animate({"margin-left": 0})
 });
 
 $(document).ready(function() {

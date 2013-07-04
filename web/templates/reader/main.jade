@@ -1,2 +1,5 @@
-h1 Here is an H1
-{{parts.title}}
+.inner 
+  h1 {{parts.title}}
+  | {{{linker parts.resolved_url}}}
+  .prose {{{parts.html}}}
+  pre.debug {{json this}}

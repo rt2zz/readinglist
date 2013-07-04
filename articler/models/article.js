@@ -20,7 +20,7 @@ Article.prototype.source = function(source){
 Article.prototype.process = function (cb){
   var self = this
   console.log('process article')
-  diffbot.article({uri: self.url}, function(err, response) {
+  diffbot.article({uri: self.url, html:true}, function(err, response) {
     console.log('diffbot responded');
     if(response.text && response.text.length > 200){
       self.data.parts = response

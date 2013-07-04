@@ -6,13 +6,6 @@ include head
     .wrap
       .readerwrap
         include header
-        include drawer
-        .content
-          if(articles[0])
-            h1.title= articles[0].parts.title
-            p.author Author
-            .articleBody !{articles[0].parts.text}
-            pre.articleJson !{JSON.stringify(articles[0], null, 2)}
-          else
-            h1 No Articles Found
+        .list
+        .main.content
         include foot
