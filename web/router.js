@@ -26,6 +26,8 @@ app.route("/logout", require('./routes/login.js').logout).nocache()
 
 app.route("/reader", require('./routes/reader.js')).condition(requireAuth).nocache()
 app.route("/reader/*", require('./routes/reader.js')).condition(requireAuth).nocache()
+app.route("/account", require('./routes/reader.js')).condition(requireAuth).nocache()
+
 
 app.route("/t/reader/main", render('reader/main.jade')).nocache()
 app.route("/t/reader/list", render('reader/list.jade')).nocache()
@@ -40,7 +42,7 @@ app.route("/", function(req, res){
   }).nocache()
 
 app.route("/auth/login", require('./routes/login.js').authRequest).nocache()
-app.route("/account", require('./routes/account.js').user).condition(requireAuth).nocache()
+// app.route("/account", require('./routes/account.js').user).condition(requireAuth).nocache()
 app.route("/setup", require('./routes/account.js').setup).condition(requireAuth).nocache()
 app.route("/setup/complete", require('./routes/account.js').setupComplete).condition(requireAuth).nocache()
 

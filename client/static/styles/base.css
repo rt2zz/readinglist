@@ -130,6 +130,8 @@ body.down {
   z-index: 100;
   width: 400px;
   background-color: #E1E1E1;
+  overflow-y: scroll;
+  border-left: 1px solid #aaa;
   -ms-transition-duration: .3s;
   -moz-transition-duration: .3s;
   -webkit-transition-duration: .3s;
@@ -178,11 +180,18 @@ body .icon-double-angle-right {
   display: none;
 }
 
-.item {
+a.item {
   border-bottom: 1px solid #aaa;
   line-height: 1.2em;
-  padding: 0 5px;
   width: 366px;
+  padding: 20px;
+  display: block;
+  color: #333;
+}
+
+a.item:hover,
+a.item.active {
+  background: #eee;
 }
 
 .title {

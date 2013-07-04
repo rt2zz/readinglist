@@ -1,5 +1,6 @@
 var _ = require('lodash')
 var request = require('request')
+var url = require('url')
 
 var Diffbot = require('diffbot').Diffbot
 var diffbot = new Diffbot('989ffc86ca31790cfc60fe9d4c028611');
@@ -7,7 +8,7 @@ var diffbot = new Diffbot('989ffc86ca31790cfc60fe9d4c028611');
 var db = require('../db/article.js')
 
 function Article (url){
-  this.url = url
+  this.url = url 
   this.data = {}
 }
 
@@ -47,6 +48,15 @@ Article.prototype.save = function(cb){
   else{
     db.get(self.uid, function(err, data){
       if(data) self.data = _.merge(data, self.data)
+      else{
+        var host = ''
+        if(typeof self.data.parts.resolved_url == 'string'){
+          var u = url.parse(self.data.parts.resolved_url)
+          host = u.hostname.replace(/\./g, '')
+        }
+        console.log('REPLACED', host)
+        self.data.slug = host+Math.random().toString(36).slice(6)    
+      } 
       db.put(self.uid, self.data)
       cb(null, self.data)
     })

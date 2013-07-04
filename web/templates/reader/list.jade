@@ -1,7 +1,7 @@
 .drawerwrapper
   #right
     | {{#each articles}}
-    .item(index="{{@index}}")
+    a.item(index="{{@index}}", auri, href="{{article_uri this.slug}}")
       p.title {{this.parts.title}}
       p.date {{date this.date}}     
       p.description {{summary this.parts.text}}

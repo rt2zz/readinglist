@@ -22,7 +22,7 @@ function decorate(req, res, cb){
   session(req, res, function(){
     req.user = function(cb){
       req.session.get('user', function(err, account){
-        account.uid = account.aliases[0]
+        if(account) account.uid = account.aliases[0]
         cb(err, account)
       })
     }

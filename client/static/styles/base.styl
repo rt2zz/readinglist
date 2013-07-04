@@ -104,6 +104,8 @@ body.down
   width: 400px
   background-color: #E1E1E1
   transition-duration: .3s
+  overflow-y: scroll
+  border-left:1px solid #aaa
 
   .border
     background-color: rgba(#000000, .30)
@@ -140,12 +142,15 @@ body .icon-double-angle-right
   .item
     display: none
     
-.item
+a.item
   border-bottom: 1px solid #aaa
   line-height: 1.2em
-  padding: 0 5px
   width: 366px
-
+  padding: 20px;
+  display: block;
+  color: #333;
+  &:hover, &.active
+    background:#eee
 .title 
   font-family: 'Roboto'
   letter-spacing: 1px
